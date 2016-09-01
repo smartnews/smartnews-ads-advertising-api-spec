@@ -89,7 +89,7 @@ Programmatically schedule campaigns and manage ads on SmartNews through this sui
 
 1. Retrive the account id - `GET /accounts` and `GET /accounts/{accountId}/campaigns`
 2. Create a campaign and associate it(account) - `POST /accounts/{accountId}/campaigns`
-3. Upload image for creative and Create some creatives and associate it(campaign) - `POST /images/upload` and `POST /campaign/{campaignId}/creatives`
+3. Upload image for creative and Create some creatives and associate it(campaign) - `POST /images/upload` and `POST /campaigns/{campaignId}/creatives`
 4. Request review campaign and associated creatives - `POST /campaigns/{campaignId}/submit_review`
 5. Enable campaign and creatives after approved - `POST /campaigns/{creativeId}/update_enable` and `POST /creatives/{creativeId}/update_enable`
 6. Update campaign's item like a `budget` - `POST /campaigns/{campaignId}/update`
@@ -571,7 +571,7 @@ Retrieve creative information.
 }
 ```
 
-#### POST /campaign/{campaignId}/creatives
+#### POST /campaigns/{campaignId}/creatives
 
 Creates a new creative associated to a given campaign.
 
