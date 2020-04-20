@@ -89,9 +89,9 @@ Programmatically schedule campaigns and manage ads on SmartNews through this sui
 
 1. Retrive the account id - `GET /accounts` and `GET /accounts/{accountId}/campaigns`
 2. Create a campaign and associate it(account) - `POST /accounts/{accountId}/campaigns`
-3. Upload image for creative and Create some creatives and associate it(campaign) - `POST /images/upload` and `POST /campaigns/{campaignId}/creatives`
+3. Upload image for creative and Create some creatives and associate it(campaign) - `POST /accounts/{accountId}/images/upload` and `POST /campaigns/{campaignId}/creatives`
 4. Request review campaign and associated creatives - `POST /campaigns/{campaignId}/submit_review`
-5. Enable campaign and creatives after approved - `POST /campaigns/{creativeId}/update_enable` and `POST /creatives/{creativeId}/update_enable`
+5. Enable campaign and creatives after approved - `POST /campaigns/{campaignId}/update_enable` and `POST /creatives/{creativeId}/update_enable`
 6. Update campaign's item like a `budget` - `POST /campaigns/{campaignId}/update`
 
 ### Campaigns
@@ -199,7 +199,7 @@ Retrieve details for a specific campaign.
       "urlscheme": "jp.gocro.smartnews://"
     },
     "trackingSpec": {
-      "trackingType": "SAT",
+      "trackingType": "SAT"
     },
     "targeting": {
       "publishers": ["120", "121", "99810"],
@@ -311,7 +311,7 @@ Create a new campaign associated with the current account.
     "urlscheme": "jp.gocro.smartnews://"
   },
   "trackingSpec": {
-    "trackingType": "SAT",
+    "trackingType": "SAT"
   },
   "targeting": {
     "publishers": ["120", "121", "99810"],
@@ -391,7 +391,7 @@ Update an existing campaign.
     "urlscheme": "jp.gocro.smartnews://"
   },
   "trackingSpec": {
-    "trackingType": "SAT",
+    "trackingType": "SAT"
   },
   "targeting": {
     "publishers": ["250", "251", "252"],
