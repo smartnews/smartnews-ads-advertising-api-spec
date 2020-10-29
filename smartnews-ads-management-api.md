@@ -532,7 +532,7 @@ For general image or video creative
 }
 ```
 
-If it is carousel type creative, creative object not have `title` and `imageset` property under the object root. Instead, it has an `assetGroups` property.
+If it is carousel type creative, creative object does not have `title` and `imageset` property under the object root. Instead, it has an `assetGroups` property.
 You can determine if the carousel feature is enabled by the `isStoryCreative` flag.
 
 ```
