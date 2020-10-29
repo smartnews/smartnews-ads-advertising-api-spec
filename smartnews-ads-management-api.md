@@ -493,6 +493,8 @@ Retrieve creative information associated with the current campaign.
 
 ##### Example Response
 
+For general image or video creative
+
 ```
 {
   "data": [
@@ -528,6 +530,52 @@ Retrieve creative information associated with the current campaign.
     }
   ]
 }
+```
+
+If it is carousel type creative, creative object does not have `title` and `imageset` property under the object root. Instead, it has an `assetGroups` property.
+You can determine if the carousel feature is enabled by the `isStoryCreative` flag.
+
+```
+{
+  "data": [
+    {
+      "name": "label for creative management",
+      "creativeId": "1000013",
+      "enable": false,
+      "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
+      "icon": {
+        "imageId": "1000014",
+        "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
+      },
+      "assetGroups": {
+        {
+          "title": "First Carousel Item Title",
+          "image": {
+            "imageId": "1000015",
+            "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg"
+          }
+        },
+        {
+          "title": "Second Carousel Item Title",
+          "image": {
+            "imageId": "1000016",
+            "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg"
+          }
+        }
+        {
+          "title": "Third Carousel Item Title",
+          "image": {
+            "imageId": "1000017",
+            "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg"
+          }
+        }
+      },
+      "approvalStatus": "PENDING",
+      "isStoryCreative": true
+    }
+  ]
+}
+
 ```
 
 #### GET /creatives/{creativeId}
