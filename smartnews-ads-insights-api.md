@@ -59,13 +59,14 @@ Error response structure is common with *SmartNews Ads Management API*. Please s
 
 You can use the following endpoint parameters to retrieve report stats.
 
-| Name          | Type             | Format                         | Description                                                              |
-|---------------|------------------|--------------------------------|--------------------------------------------------------------------------|
-| since         | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 1 00:00, use in conjunction with `until` |
-| until         | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 2 00:00, use in conjunction with `since` |
-| date_preset   | string           | DatePreset                     | it is ignored if since and until are specified                           |
-| breakdowns    | string           | BreakdownType with comma separated | it can separate several breakdowns with comma(,)                         |
-| level         | string           | Level                          | Represents the level of result.                                          |
+| Name           | Type             | Format                         | Description                                                              |
+|----------------|------------------|--------------------------------|--------------------------------------------------------------------------|
+| since          | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 1 00:00, use in conjunction with `until` |
+| until          | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 2 00:00, use in conjunction with `since` |
+| date_preset    | string           | DatePreset                     | it is ignored if since and until are specified                           |
+| breakdowns     | string           | BreakdownType with comma separated | it can separate several breakdowns with comma(,)                         |
+| level          | string           | Level                          | Represents the level of result.                                          |
+| fields_presets | string           | FieldsPresets                  | Specify what additional metrics to get.                                  |
 
 ### In future release
 
@@ -167,3 +168,11 @@ These metrics are supported by future version.
 | account         |                          |
 | campaign        |                          |
 | creative        |                          |
+
+
+### FieldsPresets
+
+| FieldsPresets   | Description              |
+|-----------------|--------------------------|
+| video           | Get the video additional metrics, such as view completion rate, for video ads. If the value does not exist, the field will not be added. |
+| skadnetwork     | Get the skadnetwork additional metrics, such ad skadnetwork_conversion, for skadnetwork measurement ads. If the value does not exist, the field will not be added. |
