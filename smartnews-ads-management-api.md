@@ -1,4 +1,4 @@
-# SmartNews Ads Management API - (apidoc v0.1 20151104)
+# SmartNews Ads Management API - (apidoc v0.2 20210928)
 
 The SmartNews Ads Advertising API allows partners integrate with the SmartNews advertising platform in their own advertising solutions.
 
@@ -10,9 +10,9 @@ SmartNews Ads Advertising API provides programmatic access to advertising accoun
 
 #### Using the API
 
-The Advertising API accessed on https://partners.smartnews-ads.com/api. The Advertising API consists of HTTP RPC-style. The Advertising API enforces HTTPS, therefore attempts to access an endpoint with HTTP will result in an error message.
+The Advertising API accessed on https://partners.smartnews-ads.com/api. The Advertising API enforces HTTPS, therefore attempts to access an endpoint with HTTP will result in an error message.
 
-The Advertising API outputs JSON. All identifiers are strings and all strings are UTF-8. The Advertising API is versioned and the version is specified as the first path element of any resource URL (such as `/v1.0`).
+The Advertising API outputs JSON. All identifiers are strings and all strings are UTF-8. The Advertising API is versioned and the version is specified as the first path element of any resource URL (such as `/v1.0` or `/v2.0`).
 
 #### Authentication
 
@@ -24,7 +24,7 @@ curl -H 'X-Auth-Api: <YOUR_API_KEY>' 'https://partners.smartnews-ads.com/api'
 
 #### Time
 
-DateTime values are always returned in UTC time (as indicated by the Z at the end of the datetime value.) DateTimes may be specified in any timezone in a POST command using the ISO 8601 standard format for timezone. Time is represented using a subset of ISO-8601. More specifically, the format string is `YYYY-MM-DDThh:mm:ssZ`.
+DateTime values are always returned in UTC time. DateTimes may be specified in any timezone in a POST command using the ISO 8601 standard format for timezone. Time is represented using a subset of ISO-8601.
 
 #### Currency
 
@@ -33,7 +33,7 @@ Currently, it is supported JPY only.
 
 ## Basics
 
-SmartNews Ads Management API Basics provides you with some fundamental information around how todo some basic things. It has all the information you may need with regards to doing things error responses & codes as well as all the different types of enums that are available.
+SmartNews Ads Management API Basics provides you with some fundamental information around how todo some basic things. It has all the information you may need with regards to doing things about errors.
 
 ### Error Codes & Responses
 
@@ -55,7 +55,7 @@ The data field in JSON responses will contain the specific objects associated wi
 
 Error Responses are served with a non-200-series HTTP code. Usually a JSON response will be attached, but some errors will respond with different kinds of body. For instance, you may occasionally see a HTTP 404 along with a HTML response. In this case, it's safe to assume that the content cannot be found.
 
-The nature of the error will be communicated in an `error` node of the response. The `error/code` node will indicate a number constant error code you can programmatically consume to make resolution decisions from. The `error/message` node will indicate a human-readable description of the error in English. Additional fields may be attached to indicate finer-grained detail about the error.
+The nature of the error will be communicated in an `error` node of the response. The `error/message` node will indicate a human-readable description of the error in English. Additional fields may be attached to indicate finer-grained detail about the error.
 
 ```
 {
@@ -87,18 +87,18 @@ Programmatically schedule campaigns and manage ads on SmartNews through this sui
 
 ### API Use Case : Call Sequence from Creating a Campaign until Delivering it
 
-1. Retrive the account id - `GET /accounts` and `GET /accounts/{accountId}/campaigns`
-2. Create a campaign and associate it(account) - `POST /accounts/{accountId}/campaigns`
-3. Upload image for creative and Create some creatives and associate it(campaign) - `POST /accounts/{accountId}/images/upload` and `POST /campaigns/{campaignId}/creatives`
-4. Request review campaign and associated creatives - `POST /campaigns/{campaignId}/submit_review`
-5. Enable campaign and creatives after approved - `POST /campaigns/{campaignId}/update_enable` and `POST /creatives/{creativeId}/update_enable`
-6. Update campaign's item like a `budget` - `POST /campaigns/{campaignId}/update`
+1. Retrive the account id - `GET /v1.0/accounts` and `GET /v1.0/accounts/{accountId}/campaigns`
+2. Create a campaign and associate it(account) - `POST /v1.0/accounts/{accountId}/campaigns`
+3. Upload image for creative and Create some creatives and associate it(campaign) - `POST /v1.0/accounts/{accountId}/images/upload` and `POST /v1.0/campaigns/{campaignId}/creatives`
+4. Request review campaign and associated creatives - `POST /v1.0/campaigns/{campaignId}/submit_review`
+5. Enable campaign and creatives after approved - `POST /v1.0/campaigns/{campaignId}/update_enable` and `POST /v1.0/creatives/{creativeId}/update_enable`
+6. Update campaign's item like a `budget` - `POST /v1.0/campaigns/{campaignId}/update`
 
 ### Campaigns
 
 Campaigns define the schedule and budget of an ad. The advertiser specifies a daily and overall budget. The campaign can be bound to a specific start and end time, and until the budget is spent. Campaign identifiers area the base-36 representation of the base-10 value we present in the SmartNews Ads Partners UI.
 
-#### GET /accounts
+#### GET /v1.0/accounts
 
 Retrieve all of the advertising-enabled accounts the authenticating user has access to.
 
@@ -119,7 +119,7 @@ Retrieve all of the advertising-enabled accounts the authenticating user has acc
 }
 ```
 
-#### GET /accounts/{accountId}/campaigns
+#### GET /v1.0/accounts/{accountId}/campaigns
 
 Retrieve some or all campaigns associated with the current account.
 
@@ -166,7 +166,7 @@ Retrieve some or all campaigns associated with the current account.
 }
 ```
 
-#### GET /campaigns/{campaignId}
+#### GET /v1.0/campaigns/{campaignId}
 
 Retrieve details for a specific campaign.
 
@@ -226,7 +226,7 @@ Retrieve details for a specific campaign.
 }
 ```
 
-#### POST /accounts/{accountId}/campaigns
+#### POST /v1.0/accounts/{accountId}/campaigns
 
 Create a new campaign associated with the current account.
 
@@ -345,7 +345,7 @@ Create a new campaign associated with the current account.
 }
 ```
 
-#### POST /campaigns/{campaignId}/update
+#### POST /v1.0/campaigns/{campaignId}/update
 
 Update an existing campaign.
 
@@ -425,7 +425,7 @@ Update an existing campaign.
 }
 ```
 
-#### POST /campaigns/{campaignId}/submit_review
+#### POST /v1.0/campaigns/{campaignId}/submit_review
 
 Request to review all of `pending` creatives associated with the given campaign.
 
@@ -445,7 +445,7 @@ Request with no content body.
 }
 ```
 
-#### POST /campaigns/{campaignId}/pullback_pending_review
+#### POST /v1.0/campaigns/{campaignId}/pullback_pending_review
 
 Pull back all of creatives in status of `pending_review`.
 
@@ -465,7 +465,7 @@ Request with no content body.
 }
 ```
 
-#### POST /campaigns/{campaignId}/update_enable
+#### POST /v1.0/campaigns/{campaignId}/update_enable
 
 Change campaign `enable` field to `true` or `false`. (`true` means deliverable state, and `false` means *NOT* deliverable state)
 
@@ -487,7 +487,7 @@ true
 
 ### Creatives
 
-#### GET /campaigns/{campaignId}/creatives
+#### GET /v1.0/campaigns/{campaignId}/creatives
 
 Retrieve creative information associated with the current campaign.
 
@@ -578,7 +578,7 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
 
 ```
 
-#### GET /creatives/{creativeId}
+#### GET /v1.0/creatives/{creativeId}
 
 Retrieve creative information.
 
@@ -619,7 +619,7 @@ Retrieve creative information.
 }
 ```
 
-#### POST /campaigns/{campaignId}/creatives
+#### POST /v1.0/campaigns/{campaignId}/creatives
 
 Creates a new creative associated to a given campaign.
 
@@ -694,7 +694,7 @@ Creates a new creative associated to a given campaign.
 }
 ```
 
-#### POST /creatives/{creativeId}/update
+#### POST /v1.0/creatives/{creativeId}/update
 
 Updates an existing creative.
 
@@ -758,7 +758,7 @@ Updates an existing creative.
 }
 ```
 
-#### POST /creatives/{creativeId}/update_enable
+#### POST /v1.0/creatives/{creativeId}/update_enable
 
 Change creative `enable` to `true` or `false`. (`true` means deliverable state, and `false` means *NOT* deliverable state)
 
@@ -779,7 +779,7 @@ true
 ```
 
 
-#### POST /accounts/{accountId}/images/upload
+#### POST /v1.0/accounts/{accountId}/images/upload
 
 Upload an image for creative.
 This api needs request's content body as `multipart/form-data` with `file` form parameter, and image upload size is up to 500KB.
@@ -807,7 +807,7 @@ curl -v --header "X-Auth-Api: {api_key}" -F file=@1035456.png {endpoint}/account
 
 ### Other Related Objects
 
-#### GET /publishers
+#### GET /v1.0/publishers
 
 Retrieve available media for targeting.
 
@@ -832,7 +832,7 @@ Retrieve available media for targeting.
 }
 ```
 
-#### GET /adcategories
+#### GET /v1.0/adcategories
 
 Retrieve available categories for targeting.
 
@@ -863,7 +863,7 @@ Retrieve available categories for targeting.
 }
 ```
 
-#### GET /genres
+#### GET /v1.0/genres
 
 Retrieve available genres for targeting.
 
@@ -884,7 +884,7 @@ Retrieve available genres for targeting.
 }
 ```
 
-#### GET /cities
+#### GET /v1.0/cities
 
 Retrieve available cities for targeting.
 
@@ -1075,3 +1075,246 @@ Retrieve available cities for targeting.
 | PENDING_REVIEW         |
 | APPROVED               |
 | REJECTED               |
+
+
+## Custom Audience
+
+The SmartNews Ads Custom Audience API allows partners to manipulate custom audiences without accessing the SmartNews advertising web console.
+
+Steps
+1. Upload CSV formatted audience file to SmartNews Ads server
+2. Register the uploaded file as a Custom Audience data in SmartNews Ads platform
+3. You can get your audience file status. Once you can confirm the custom audience data is ready to use, you can use it
+4. If you don’t need the audience data anymore, you can delete the data file physically from SmartNews Ads server
+
+### Uploading ID list file
+
+#### POST /v2.0/audiences/idlist
+
+Upload CSV formatted audience file to SmartNews Ads server. The file should contain 1 ID per line.
+
+##### Parameters [in request payload]
+
+| Name          | Type             | Format              | Description                   |
+|---------------|------------------|---------------------|-------------------------------|
+| file          | (string, object) | (string, file data) |                               |
+| accountId     | string           |                     | accountId you allow to access |
+
+##### Example Result
+
+```
+{
+  "data": {
+    "idlistId": "L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg=="
+  }
+}
+```
+
+### Register Audience
+
+#### POST /v2.0/audiences
+
+Register the uploaded file as a Custom Audience data in SmartNews Ads platform
+
+##### Parameters [in request payload]
+
+| Name          | Type       | Format      | Description                                     |
+|---------------|------------|-------------|-------------------------------------------------|
+| idType        | string     |             | must be "IDFA" for iPhone or "AAID" for Android |
+| name          | string     |             |                                                 |
+| idlistId      | string     |             | idlistId that you got by idlist request         |
+| description   | string     |             |                                                 |
+| accountId     | string     |             | accountId you allow to access                   |
+| type          | string     |             | must be "idlist"                                |
+
+
+
+##### Example Result
+
+```
+{
+   "data":{
+      "audienceId":10000001,
+      "accountId":10000000,
+      "name":"Audience API test",
+      "description":"This is a test ",
+      "type":"idlist",
+      "status":"enabled",
+      "ready":false,
+      "size":0,
+      "configuration":{
+         "type":"idlist",
+         "data":{
+            "type":"idlist",
+            "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
+            "idType":"IDFA"
+         }
+      },
+      "createdAt":"2021-07-20T09:32:25+0000",
+      "updatedAt":"2021-07-20T09:32:25+0000"
+   }
+}
+```
+
+### Get an idlist status
+
+#### GET /v2.0/audiences/idlist/{idlistId}
+
+Retrieve an idlist status using idlistId
+
+##### Example Result
+
+```
+{
+   "data":{
+      "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
+      "idlistStatus":"UPLOADED"
+   }
+}
+```
+
+### Get all custom audience info
+
+#### GET /v2.0/audiences?accountId={accountId}
+
+Get all audience info of an accountId. By adding &audienceIds={audienceId*1*},…,{audienceId*k*} to the url paramenter, you can get the audienceIds specific information.
+
+##### Example Result
+
+```
+{
+   "data":[
+      {
+         "audienceId":10000001,
+         "accountId":10000000,
+         "name":"Audience API test",
+         "description":"this is a test",
+         "type":"idlist",
+         "status":"archived",
+         "ready":false,
+         "size":0,
+         "configuration":{
+            "type":"idlist",
+            "data":{
+               "type":"idlist",
+               "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
+               "idType":"AAID"
+            }
+         },
+         "createdAt":"2021-07-13T07:40:35+0000",
+         "updatedAt":"2021-07-13T09:49:41+0000"
+      },
+      {
+         "audienceId":10000002,
+         "accountId":10000000,
+         "name":"Audience API test2",
+         "description":"this is a test2",
+         "type":"idlist",
+         "status":"archived",
+         "ready":false,
+         "size":0,
+         "configuration":{
+            "type":"idlist",
+            "data":{
+               "type":"idlist",
+               "idlistId":"F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg==",
+               "idType":"IDFA"
+            }
+         },
+         "createdAt":"2021-07-13T07:41:05+0000",
+         "updatedAt":"2021-07-13T09:49:30+0000"
+      }
+   ]
+}
+```
+
+### Get an audience info
+
+#### GET /v2.0/audiences/{audienceId}
+
+Retrieve an audience info by audienceId
+
+##### Example Result
+
+```
+{
+   "data":{
+      "audienceId":10000002,
+      "accountId":1000000,
+      "name":"Audience API test2",
+      "description":"this is a test2",
+      "type":"idlist",
+      "status":"enabled",
+      "ready":false,
+      "size":0,
+      "configuration":{
+         "type":"idlist",
+         "data":{
+            "type":"idlist",
+            "idlistId":" F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg==",
+            "idType":"AAID"
+         }
+      },
+      "createdAt":"2021-07-13T07:43:48+0000",
+      "updatedAt":"2021-07-13T07:43:48+0000"
+   }
+}
+```
+
+### Delete an idlist
+
+#### DELETE /v2.0/audiences/idlist/{idlistId}
+
+Delete an idlistId file from SmartNews Ads server physically
+
+##### Example Result
+
+```
+{
+   "success":true
+}
+```
+
+### Update status of an Audience
+
+#### PUT /v2.0/audiences/{audienceId}/status
+
+Update status of specified audience. There are following rules
+1.	To switch status to "archive", the current status must be "disabled"
+2.	In case the current status is "archived", you cannot switch to "enable" or "disable"
+
+##### Parameters [in request payload]
+
+| Name          | Type       | Format      | Description                                   |
+|---------------|------------|-------------|-----------------------------------------------|
+| status        | string     |             | must be one of "enable", "disable", "archive" |
+
+##### Example Result
+
+```
+{
+   "success":true
+}
+```
+
+
+### Update Audience name and description
+
+#### PUT /v2.0/audiences/{audienceId}
+
+Update name and description of an existing audience.
+
+##### Parameters [in request payload]
+
+| Name          | Type       | Format      | Description                                   |
+|---------------|------------|-------------|-----------------------------------------------|
+| name          | string     |             |                                               |
+| description   | string     |             |                                               |
+
+##### Example Result
+
+```
+{
+   "success":true
+}
+```
