@@ -61,8 +61,8 @@ You can use the following endpoint parameters to retrieve report stats.
 
 | Name           | Type             | Format                         | Description                                                              |
 |----------------|------------------|--------------------------------|--------------------------------------------------------------------------|
-| since          | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 1 00:00, use in conjunction with `until` |
-| until          | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 2 00:00, use in conjunction with `since` |
+| since          | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 1 00:00, use in conjunction with `until`, `since` can be any date between today and 1098 days ago from today. |
+| until          | string           | yyyy-MM-dd                     | `2015-01-01` refers to time Jan 2 00:00, use in conjunction with `since`, `until` can be any date between `since` and 92 days after from `since`. |
 | date_preset    | string           | DatePreset                     | it is ignored if since and until are specified                           |
 | breakdowns     | string           | BreakdownType with comma separated | it can separate several breakdowns with comma(,)                         |
 | level          | string           | Level                          | Represents the level of result.                                          |
