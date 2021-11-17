@@ -504,10 +504,6 @@ For general image or video creative
       "enable": false,
       "title": "Trending News & Stories",
       "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-      "icon": {
-        "imageId": "1000014",
-        "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
-      },
       "imageset": {
         "a": {
           "imageId": "1000015",
@@ -543,10 +539,6 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
       "creativeId": "1000013",
       "enable": false,
       "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-      "icon": {
-        "imageId": "1000014",
-        "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
-      },
       "assetGroups": {
         {
           "title": "First Carousel Item Title",
@@ -592,10 +584,6 @@ Retrieve creative information.
     "enable": false,
     "title": "Trending News & Stories",
     "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-    "icon": {
-      "imageId": "1000021",
-      "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
-    },
     "imageset": {
       "a": {
         "imageId": "1000022",
@@ -636,7 +624,6 @@ Creates a new creative associated to a given campaign.
 | name          | string   |              | **required** The name for creative.        |
 | title         | string   |              | **required** The title for creative. It is used as creative short text. |
 | text          | string   |              | **required** The text for creative. It is used as creative long text. |
-| icon          | object   | Image        | **required** The identifier for a icon image. It is used as creative icon. |
 | imageset      | object   | ImageSetC    | **required** The image set for creative. |
 | linkUrl       | string   | url          | **required if actionType is `APP_INSTALL`** The link destination on click ad. |
 | trackingUrl   | string   | url          | **optional** The url for tracking tool. |
@@ -669,9 +656,6 @@ Creates a new creative associated to a given campaign.
   "name": "label for creative management",
   "title": "Trending News & Stories",
   "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-  "icon": {
-    "imageId": "1000040",
-  },
   "imageset": {
     "a": { "imageId": "1000041" },
     "b": { "imageId": "1000042" },
@@ -711,7 +695,6 @@ Updates an existing creative.
 | name          | string   |              | **optional** The name for creative.        |
 | title         | string   |              | **optional** The title for creative. It is used as creative short text. |
 | text          | string   |              | **optional** The text for creative. It is used as creative long text. |
-| icon          | object   | Image        | **optional** The identifier for a icon image. It is used as creative icon. |
 | imageset      | object   | ImageSetU    | **optional** The image set for creative. |
 | linkUrl       | string   | url          | **optional** The link destination on click ad. |
 | trackingUrl   | string   | url          | **optional** The url for tracking tool. |
@@ -733,9 +716,6 @@ Updates an existing creative.
   "creativeId": "10000030",
   "title": "Trending News & Stories",
   "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-  "icon": {
-    "imageId": "10000030"
-  },
   "imageset": {
     "a": { "imageId": "10000031" },
     "b": { "imageId": "10000032" },
@@ -994,7 +974,6 @@ Retrieve available cities for targeting.
 | name                               | string           |                   | Y        | (and nonEmpty (maxLength 128)) |
 | title                              | string           |                   | Y        | (and (minLength 10) (maxLength 25)) |
 | text                               | string           |                   | Y        | (and (minLength 10) (maxLength 90)) |
-| icon                               | object           | CreativeImage     | Y        | |
 | imageset                           | object           | CreativeImageSet  | Y        | |
 | linkUrl                            | string           |                   | Y        | (and nonEmpty (maxLength 1024) looseUrl) |
 | trackingUrl                        | string           |                   | N        | (and nonEmpty (maxLength 1024) looseUrl) |
