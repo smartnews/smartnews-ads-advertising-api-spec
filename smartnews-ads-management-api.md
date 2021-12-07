@@ -522,7 +522,9 @@ For general image or video creative
       "targeting": {
         "genres": ["1", "2"]
       },
-      "approvalStatus": "PENDING"
+      "approvalStatus": "PENDING",
+      "merchandiseCatalogId": "1000024",
+      "urlTags": "utm_source=smartnews&key=val"
     }
   ]
 }
@@ -563,7 +565,9 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
         }
       },
       "approvalStatus": "PENDING",
-      "isStoryCreative": true
+      "isStoryCreative": true,
+      "merchandiseCatalogId": "1000024",
+      "urlTags": "utm_source=smartnews&key=val"
     }
   ]
 }
@@ -602,7 +606,9 @@ Retrieve creative information.
     "targeting": {
       "genres": ["1", "2"]
     },
-    "approvalStatus": "PENDING"
+    "approvalStatus": "PENDING",
+    "merchandiseCatalogId": "1000024",
+    "urlTags": "utm_source=smartnews&key=val"
   }
 }
 ```
