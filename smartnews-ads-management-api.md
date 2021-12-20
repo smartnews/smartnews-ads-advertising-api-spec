@@ -1,4 +1,4 @@
-# SmartNews Ads Management API - (apidoc v0.3 20211125)
+# SmartNews Ads Management API - (apidoc v0.4 20211214)
 
 The SmartNews Ads Advertising API allows partners integrate with the SmartNews advertising platform in their own advertising solutions.
 
@@ -522,7 +522,9 @@ For general image or video creative
       "targeting": {
         "genres": ["1", "2"]
       },
-      "approvalStatus": "PENDING"
+      "approvalStatus": "PENDING",
+      "merchandiseCatalogId": "1000024",
+      "urlTags": "utm_source=smartnews&key=val"
     }
   ]
 }
@@ -563,7 +565,9 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
         }
       },
       "approvalStatus": "PENDING",
-      "isStoryCreative": true
+      "isStoryCreative": true,
+      "merchandiseCatalogId": "1000024",
+      "urlTags": "utm_source=smartnews&key=val"
     }
   ]
 }
@@ -602,7 +606,9 @@ Retrieve creative information.
     "targeting": {
       "genres": ["1", "2"]
     },
-    "approvalStatus": "PENDING"
+    "approvalStatus": "PENDING",
+    "merchandiseCatalogId": "1000024",
+    "urlTags": "utm_source=smartnews&key=val"
   }
 }
 ```
