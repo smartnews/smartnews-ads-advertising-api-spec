@@ -217,9 +217,6 @@ Retrieve details for a specific campaign.
         }
       ]
     },
-    "features": {
-      "creativeOptimizerEnabled": true
-    },
     "approvalStatus": "PENDING",
     "updatedAt": "2015-07-01T13:40:00Z",
   }
@@ -253,7 +250,6 @@ Create a new campaign associated with the current account.
 | appSpec       | object           | AppSpec      | **optional** The application information. (it is available if actionType is `APP_INSTALL`)   |
 | trackingSpec  | object           | TrackingSpec | **optional** The tracking tool spec if you need. (it is available if actionType is `APP_INSTALL`) |
 | targeting     | object           | Targeting    | **optional** The targeting for campaign. |
-| features      | object           | Features     | **optional** The features for campaign. |
 
 ##### Parameters [AppSpec]
 
@@ -285,12 +281,6 @@ Create a new campaign associated with the current account.
 | Name          | Type           | Format       | Description                                |
 |---------------|----------------|--------------|--------------------------------------------|
 | key           | string         | int          | **optional** media targeting. |
-
-##### Parameters [Features]
-
-| Name                     | Type     | Format       | Description                                |
-|--------------------------|----------|--------------|--------------------------------------------|
-| creativeOptimizerEnabled | boolean  |              | **optional** The creative optimizer control for campaign. |
 
 ##### Request Example
 
@@ -328,9 +318,6 @@ Create a new campaign associated with the current account.
         "endSecond": 14400
       }
     ]
-  },
-  "features": {
-    "creativeOptimizerEnabled": true
   }
 }
 ```
@@ -371,7 +358,6 @@ Update an existing campaign.
 | appSpec            | object   | AppSpec      | **optional** |
 | trackingSpec       | object   | TrackingSpec | **optional** |
 | targeting          | object   | Targeting    | **optional** |
-| features           | object   | Features     | **optional** |
 
 ##### Example Request
 
@@ -408,9 +394,6 @@ Update an existing campaign.
         "endSecond": 14400
       }
     ]
-  },
-  "features": {
-    "creativeOptimizerEnabled": true
   }
 }
 ```
@@ -929,7 +912,6 @@ Retrieve available cities for targeting.
 | adCategoryId         | int             |                  | Y                 | (existIn /adcategories) |
 | appSpec              | object          | AppSpec          | Y if APP_INSTALL  | (and nonEmpty (maxLength 256) (or androidAppId iosAppId)) |
 | trackingSpec         | object          | TrackingType     | N                 | it is available if actionType is `APP_INSTALL` |
-| features             | object          | CampaignFeatures | N                 | |
 
 #### AppSpec
 
@@ -966,12 +948,6 @@ Retrieve available cities for targeting.
 |------------------------------------|------------------|----------|----------|-------------------|
 | startSecond                        | number           | int      | Y        | (and (min 0) (max 86400) (max endSecond)) |
 | endSecond                          | number           | int      | Y        | (and (min 0) (max 86400) (min startSecond)) |
-
-#### CampaignFeatures
-
-| Name                               | Type             | Format   | Required | Spec         |
-|------------------------------------|------------------|----------|----------|--------------|
-| creativeOptimizerEnabled           | boolean          |          | N        |              |
 
 #### Creative
 
