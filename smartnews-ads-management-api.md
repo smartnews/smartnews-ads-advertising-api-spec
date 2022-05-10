@@ -1,4 +1,4 @@
-# SmartNews Ads Management API - (apidoc v0.5 20220124)
+# SmartNews Ads Management API - (apidoc v0.6 20220323)
 
 The SmartNews Ads Advertising API allows partners integrate with the SmartNews advertising platform in their own advertising solutions.
 
@@ -1052,7 +1052,8 @@ Steps
 
 #### POST /v2.0/audiences/idlist
 
-Upload CSV formatted audience file to SmartNews Ads server. The file should contain 1 ID per line.
+Upload CSV formatted audience file to SmartNews Ads server. The file should contain 1 ID per line, and the first line
+of the file should contain a string with the ID type (currently the only accepted type is `madid`).
 
 ##### Parameters [in request payload]
 
@@ -1081,7 +1082,6 @@ Register the uploaded file as a Custom Audience data in SmartNews Ads platform
 
 | Name          | Type       | Format      | Description                                     |
 |---------------|------------|-------------|-------------------------------------------------|
-| idType        | string     |             | must be "IDFA" for iPhone or "AAID" for Android |
 | name          | string     |             |                                                 |
 | idlistId      | string     |             | idlistId that you got by idlist request         |
 | description   | string     |             |                                                 |
@@ -1107,8 +1107,7 @@ Register the uploaded file as a Custom Audience data in SmartNews Ads platform
          "type":"idlist",
          "data":{
             "type":"idlist",
-            "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
-            "idType":"IDFA"
+            "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg=="
          }
       },
       "createdAt":"2021-07-20T09:32:25+0000",
@@ -1158,8 +1157,7 @@ Get all audience info of an accountId. By adding &audienceIds={audienceId*1*},â€
             "type":"idlist",
             "data":{
                "type":"idlist",
-               "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
-               "idType":"AAID"
+               "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg=="
             }
          },
          "createdAt":"2021-07-13T07:40:35+0000",
@@ -1178,8 +1176,7 @@ Get all audience info of an accountId. By adding &audienceIds={audienceId*1*},â€
             "type":"idlist",
             "data":{
                "type":"idlist",
-               "idlistId":"F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg==",
-               "idType":"IDFA"
+               "idlistId":"F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg=="
             }
          },
          "createdAt":"2021-07-13T07:41:05+0000",
@@ -1212,8 +1209,7 @@ Retrieve an audience info by audienceId
          "type":"idlist",
          "data":{
             "type":"idlist",
-            "idlistId":" F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg==",
-            "idType":"AAID"
+            "idlistId":" F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg=="
          }
       },
       "createdAt":"2021-07-13T07:43:48+0000",
