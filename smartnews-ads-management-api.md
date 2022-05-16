@@ -1080,13 +1080,13 @@ Register the uploaded file as a Custom Audience data in SmartNews Ads platform
 
 ##### Parameters [in request payload]
 
-| Name          | Type       | Format      | Description                                     |
-|---------------|------------|-------------|-------------------------------------------------|
-| name          | string     |             |                                                 |
-| idlistId      | string     |             | idlistId that you got by idlist request         |
-| description   | string     |             |                                                 |
-| accountId     | string     |             | accountId you allow to access                   |
-| type          | string     |             | must be "idlist"                                |
+| Name          | Type       | Format      | Description                                          |
+|---------------|------------|-------------|------------------------------------------------------|
+| name          | string     |             | **required** The name of the custom audience         |
+| idlistId      | string     |             | **required** idlistId that you got by idlist request |
+| description   | string     |             | **optional** description for this custom audience    |
+| accountId     | string     |             | **required** accountId to create audience under      |
+| type          | string     |             | **required** must be "idlist"                        |
 
 
 
@@ -1259,14 +1259,15 @@ Update status of specified audience. There are following rules
 
 #### PUT /v2.0/audiences/{audienceId}
 
-Update name and description of an existing audience.
+Update name and description of an existing audience. Note: at least one parameter must be set to receive a successful 
+response.
 
 ##### Parameters [in request payload]
 
-| Name          | Type       | Format      | Description                                   |
-|---------------|------------|-------------|-----------------------------------------------|
-| name          | string     |             |                                               |
-| description   | string     |             |                                               |
+| Name          | Type       | Format      | Description                                          |
+|---------------|------------|-------------|------------------------------------------------------|
+| name          | string     |             | **optional** The name of the custom audience         |
+| description   | string     |             | **optional** The description of the custom audience  |
 
 ##### Example Result
 
