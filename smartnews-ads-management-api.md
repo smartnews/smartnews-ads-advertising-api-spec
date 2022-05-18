@@ -1,4 +1,4 @@
-# SmartNews Ads Management API - (apidoc v0.6 20220323)
+# SmartNews Ads Management API - (apidoc v0.7 20220518)
 
 The SmartNews Ads Advertising API allows partners integrate with the SmartNews advertising platform in their own advertising solutions.
 
