@@ -122,7 +122,7 @@ Retrieve all of the advertising-enabled accounts the authenticating user has acc
 #### GET /v1.0/accounts/{accountId}/campaigns
 
 Retrieve some or all campaigns associated with the current account.
-Note: Campaigns that has Dynamic Creative can not be retrieved through this API.
+Note: Campaigns that has Dynamic Creative ON can not be retrieved through this API.
 
 ##### Parameters
 
@@ -170,7 +170,7 @@ Note: Campaigns that has Dynamic Creative can not be retrieved through this API.
 #### GET /v1.0/campaigns/{campaignId}
 
 Retrieve details for a specific campaign.
-Note: Campaigns that has Dynamic Creative can not be retrieved through this API.
+Note: Campaigns that has Dynamic Creative ON can not be retrieved through this API.
 
 ##### Parameters
 
