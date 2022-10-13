@@ -1,4 +1,4 @@
-# SmartNews Ads Management API - (apidoc v0.2 20210928)
+# SmartNews Ads Management API - (apidoc v0.7 20220518)
 
 The SmartNews Ads Advertising API allows partners integrate with the SmartNews advertising platform in their own advertising solutions.
 
@@ -122,6 +122,7 @@ Retrieve all of the advertising-enabled accounts the authenticating user has acc
 #### GET /v1.0/accounts/{accountId}/campaigns
 
 Retrieve some or all campaigns associated with the current account.
+Note: Campaigns that has Dynamic Creative ON can not be retrieved through this API.
 
 ##### Parameters
 
@@ -169,6 +170,7 @@ Retrieve some or all campaigns associated with the current account.
 #### GET /v1.0/campaigns/{campaignId}
 
 Retrieve details for a specific campaign.
+Note: Campaigns that has Dynamic Creative ON can not be retrieved through this API.
 
 ##### Parameters
 
@@ -217,9 +219,6 @@ Retrieve details for a specific campaign.
         }
       ]
     },
-    "features": {
-      "creativeOptimizerEnabled": true
-    },
     "approvalStatus": "PENDING",
     "updatedAt": "2015-07-01T13:40:00Z"
   }
@@ -253,7 +252,6 @@ Create a new campaign associated with the current account.
 | appSpec       | object           | AppSpec      | **optional** The application information. (it is available if actionType is `APP_INSTALL`)   |
 | trackingSpec  | object           | TrackingSpec | **optional** The tracking tool spec if you need. (it is available if actionType is `APP_INSTALL`) |
 | targeting     | object           | Targeting    | **optional** The targeting for campaign. |
-| features      | object           | Features     | **optional** The features for campaign. |
 
 ##### Parameters [AppSpec]
 
@@ -285,12 +283,6 @@ Create a new campaign associated with the current account.
 | Name          | Type           | Format       | Description                                |
 |---------------|----------------|--------------|--------------------------------------------|
 | key           | string         | int          | **optional** media targeting. |
-
-##### Parameters [Features]
-
-| Name                     | Type     | Format       | Description                                |
-|--------------------------|----------|--------------|--------------------------------------------|
-| creativeOptimizerEnabled | boolean  |              | **optional** The creative optimizer control for campaign. |
 
 ##### Request Example
 
@@ -328,9 +320,6 @@ Create a new campaign associated with the current account.
         "endSecond": 14400
       }
     ]
-  },
-  "features": {
-    "creativeOptimizerEnabled": true
   }
 }
 ```
@@ -371,7 +360,6 @@ Update an existing campaign.
 | appSpec            | object   | AppSpec      | **optional** |
 | trackingSpec       | object   | TrackingSpec | **optional** |
 | targeting          | object   | Targeting    | **optional** |
-| features           | object   | Features     | **optional** |
 
 ##### Example Request
 
@@ -408,9 +396,6 @@ Update an existing campaign.
         "endSecond": 14400
       }
     ]
-  },
-  "features": {
-    "creativeOptimizerEnabled": true
   }
 }
 ```
@@ -504,10 +489,6 @@ For general image or video creative
       "enable": false,
       "title": "Trending News & Stories",
       "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-      "icon": {
-        "imageId": "1000014",
-        "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
-      },
       "imageset": {
         "a": {
           "imageId": "1000015",
@@ -526,7 +507,9 @@ For general image or video creative
       "targeting": {
         "genres": ["1", "2"]
       },
-      "approvalStatus": "PENDING"
+      "approvalStatus": "PENDING",
+      "merchandiseCatalogId": "1000024",
+      "urlTags": "utm_source=smartnews&key=val"
     }
   ]
 }
@@ -543,10 +526,6 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
       "creativeId": "1000013",
       "enable": false,
       "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-      "icon": {
-        "imageId": "1000014",
-        "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
-      },
       "assetGroups": {
         "a": {
           "title": "First Carousel Item Title",
@@ -571,7 +550,9 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
         }
       },
       "approvalStatus": "PENDING",
-      "isStoryCreative": true
+      "isStoryCreative": true,
+      "merchandiseCatalogId": "1000024",
+      "urlTags": "utm_source=smartnews&key=val"
     }
   ]
 }
@@ -592,10 +573,6 @@ Retrieve creative information.
     "enable": false,
     "title": "Trending News & Stories",
     "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-    "icon": {
-      "imageId": "1000021",
-      "imageUrl": "http://creative.smartnews-ads.com/path/to/icon.jpg"
-    },
     "imageset": {
       "a": {
         "imageId": "1000022",
@@ -614,7 +591,9 @@ Retrieve creative information.
     "targeting": {
       "genres": ["1", "2"]
     },
-    "approvalStatus": "PENDING"
+    "approvalStatus": "PENDING",
+    "merchandiseCatalogId": "1000024",
+    "urlTags": "utm_source=smartnews&key=val"
   }
 }
 ```
@@ -636,7 +615,6 @@ Creates a new creative associated to a given campaign.
 | name          | string   |              | **required** The name for creative.        |
 | title         | string   |              | **required** The title for creative. It is used as creative short text. |
 | text          | string   |              | **required** The text for creative. It is used as creative long text. |
-| icon          | object   | Image        | **required** The identifier for a icon image. It is used as creative icon. |
 | imageset      | object   | ImageSetC    | **required** The image set for creative. |
 | linkUrl       | string   | url          | **required if actionType is `APP_INSTALL`** The link destination on click ad. |
 | trackingUrl   | string   | url          | **optional** The url for tracking tool. |
@@ -669,9 +647,6 @@ Creates a new creative associated to a given campaign.
   "name": "label for creative management",
   "title": "Trending News & Stories",
   "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-  "icon": {
-    "imageId": "1000040"
-  },
   "imageset": {
     "a": { "imageId": "1000041" },
     "b": { "imageId": "1000042" },
@@ -711,7 +686,6 @@ Updates an existing creative.
 | name          | string   |              | **optional** The name for creative.        |
 | title         | string   |              | **optional** The title for creative. It is used as creative short text. |
 | text          | string   |              | **optional** The text for creative. It is used as creative long text. |
-| icon          | object   | Image        | **optional** The identifier for a icon image. It is used as creative icon. |
 | imageset      | object   | ImageSetU    | **optional** The image set for creative. |
 | linkUrl       | string   | url          | **optional** The link destination on click ad. |
 | trackingUrl   | string   | url          | **optional** The url for tracking tool. |
@@ -733,9 +707,6 @@ Updates an existing creative.
   "creativeId": "10000030",
   "title": "Trending News & Stories",
   "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
-  "icon": {
-    "imageId": "10000030"
-  },
   "imageset": {
     "a": { "imageId": "10000031" },
     "b": { "imageId": "10000032" },
@@ -943,7 +914,6 @@ Retrieve available cities for targeting.
 | adCategoryId         | int             |                  | Y                 | (existIn /adcategories) |
 | appSpec              | object          | AppSpec          | Y if APP_INSTALL  | (and nonEmpty (maxLength 256) (or androidAppId iosAppId)) |
 | trackingSpec         | object          | TrackingType     | N                 | it is available if actionType is `APP_INSTALL` |
-| features             | object          | CampaignFeatures | N                 | |
 
 #### AppSpec
 
@@ -981,12 +951,6 @@ Retrieve available cities for targeting.
 | startSecond                        | number           | int      | Y        | (and (min 0) (max 86400) (max endSecond)) |
 | endSecond                          | number           | int      | Y        | (and (min 0) (max 86400) (min startSecond)) |
 
-#### CampaignFeatures
-
-| Name                               | Type             | Format   | Required | Spec         |
-|------------------------------------|------------------|----------|----------|--------------|
-| creativeOptimizerEnabled           | boolean          |          | N        |              |
-
 #### Creative
 
 | Name                               | Type             | Format            | Required | Spec         |
@@ -994,7 +958,6 @@ Retrieve available cities for targeting.
 | name                               | string           |                   | Y        | (and nonEmpty (maxLength 128)) |
 | title                              | string           |                   | Y        | (and (minLength 10) (maxLength 25)) |
 | text                               | string           |                   | Y        | (and (minLength 10) (maxLength 90)) |
-| icon                               | object           | CreativeImage     | Y        | |
 | imageset                           | object           | CreativeImageSet  | Y        | |
 | linkUrl                            | string           |                   | Y        | (and nonEmpty (maxLength 1024) looseUrl) |
 | trackingUrl                        | string           |                   | N        | (and nonEmpty (maxLength 1024) looseUrl) |
@@ -1091,7 +1054,8 @@ Steps
 
 #### POST /v2.0/audiences/idlist
 
-Upload CSV formatted audience file to SmartNews Ads server. The file should contain 1 ID per line.
+Upload CSV formatted audience file to SmartNews Ads server. The file should contain 1 ID per line, and the first line
+of the file should contain a string with the ID type (currently the only accepted type is `madid`).
 
 ##### Parameters [in request payload]
 
@@ -1118,14 +1082,13 @@ Register the uploaded file as a Custom Audience data in SmartNews Ads platform
 
 ##### Parameters [in request payload]
 
-| Name          | Type       | Format      | Description                                     |
-|---------------|------------|-------------|-------------------------------------------------|
-| idType        | string     |             | must be "IDFA" for iPhone or "AAID" for Android |
-| name          | string     |             |                                                 |
-| idlistId      | string     |             | idlistId that you got by idlist request         |
-| description   | string     |             |                                                 |
-| accountId     | string     |             | accountId you allow to access                   |
-| type          | string     |             | must be "idlist"                                |
+| Name          | Type       | Format      | Description                                          |
+|---------------|------------|-------------|------------------------------------------------------|
+| name          | string     |             | **required** The name of the custom audience         |
+| idlistId      | string     |             | **required** idlistId that you got by idlist request |
+| description   | string     |             | **optional** description for this custom audience    |
+| accountId     | string     |             | **required** accountId to create audience under      |
+| type          | string     |             | **required** must be "idlist"                        |
 
 
 
@@ -1146,8 +1109,7 @@ Register the uploaded file as a Custom Audience data in SmartNews Ads platform
          "type":"idlist",
          "data":{
             "type":"idlist",
-            "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
-            "idType":"IDFA"
+            "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg=="
          }
       },
       "createdAt":"2021-07-20T09:32:25+0000",
@@ -1197,8 +1159,7 @@ Get all audience info of an accountId. By adding &audienceIds={audienceId*1*},â€
             "type":"idlist",
             "data":{
                "type":"idlist",
-               "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg==",
-               "idType":"AAID"
+               "idlistId":"L2N1c3RvbWF1ZGllbmNlL2lkbGC8yMaU1BvT0xLQS5neg=="
             }
          },
          "createdAt":"2021-07-13T07:40:35+0000",
@@ -1217,8 +1178,7 @@ Get all audience info of an accountId. By adding &audienceIds={audienceId*1*},â€
             "type":"idlist",
             "data":{
                "type":"idlist",
-               "idlistId":"F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg==",
-               "idType":"IDFA"
+               "idlistId":"F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg=="
             }
          },
          "createdAt":"2021-07-13T07:41:05+0000",
@@ -1251,8 +1211,7 @@ Retrieve an audience info by audienceId
          "type":"idlist",
          "data":{
             "type":"idlist",
-            "idlistId":" F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg==",
-            "idType":"AAID"
+            "idlistId":" F1ZGllbmNlL2lkbGC8yMaU1BvkbGC8yMaU1BvT0xLQS5neg=="
          }
       },
       "createdAt":"2021-07-13T07:43:48+0000",
@@ -1302,14 +1261,15 @@ Update status of specified audience. There are following rules
 
 #### PUT /v2.0/audiences/{audienceId}
 
-Update name and description of an existing audience.
+Update name and description of an existing audience. Note: at least one parameter must be set to receive a successful 
+response.
 
 ##### Parameters [in request payload]
 
-| Name          | Type       | Format      | Description                                   |
-|---------------|------------|-------------|-----------------------------------------------|
-| name          | string     |             |                                               |
-| description   | string     |             |                                               |
+| Name          | Type       | Format      | Description                                          |
+|---------------|------------|-------------|------------------------------------------------------|
+| name          | string     |             | **optional** The name of the custom audience         |
+| description   | string     |             | **optional** The description of the custom audience  |
 
 ##### Example Result
 
