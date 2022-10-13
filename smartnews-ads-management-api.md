@@ -220,7 +220,7 @@ Note: Campaigns that has Dynamic Creative ON can not be retrieved through this A
       ]
     },
     "approvalStatus": "PENDING",
-    "updatedAt": "2015-07-01T13:40:00Z",
+    "updatedAt": "2015-07-01T13:40:00Z"
   }
 }
 ```
@@ -423,9 +423,9 @@ Request with no content body.
 ```
 {
   "data": [
-    { "creativeId": "1000007", approvalStatus: "PENDING_REVIEW" },
-    { "creativeId": "1000008", approvalStatus: "PENDING_REVIEW" },
-    { "creativeId": "1000009", approvalStatus: "PENDING_REVIEW" }
+    { "creativeId": "1000007", "approvalStatus": "PENDING_REVIEW" },
+    { "creativeId": "1000008", "approvalStatus": "PENDING_REVIEW" },
+    { "creativeId": "1000009", "approvalStatus": "PENDING_REVIEW" }
   ]
 }
 ```
@@ -443,9 +443,9 @@ Request with no content body.
 ```
 {
   "data": [
-    { "creativeId": "1000010", approvalStatus: "PENDING" },
-    { "creativeId": "1000011", approvalStatus: "PENDING" },
-    { "creativeId": "1000012", approvalStatus: "PENDING" }
+    { "creativeId": "1000010", "approvalStatus": "PENDING" },
+    { "creativeId": "1000011", "approvalStatus": "PENDING" },
+    { "creativeId": "1000012", "approvalStatus": "PENDING" }
   ]
 }
 ```
@@ -527,21 +527,21 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
       "enable": false,
       "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
       "assetGroups": {
-        {
+        "a": {
           "title": "First Carousel Item Title",
           "image": {
             "imageId": "1000015",
             "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg"
           }
         },
-        {
+        "b": {
           "title": "Second Carousel Item Title",
           "image": {
             "imageId": "1000016",
             "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg"
           }
-        }
-        {
+        },
+        "c": {
           "title": "Third Carousel Item Title",
           "image": {
             "imageId": "1000017",
