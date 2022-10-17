@@ -1,4 +1,4 @@
-# SmartNews Ads Management API - (apidoc v0.7 20220518)
+# SmartNews Ads Management API - (apidoc v0.8 20221017)
 
 The SmartNews Ads Advertising API allows partners integrate with the SmartNews advertising platform in their own advertising solutions.
 
@@ -10,7 +10,7 @@ SmartNews Ads Advertising API provides programmatic access to advertising accoun
 
 #### Using the API
 
-The Advertising API accessed on https://partners.smartnews-ads.com/api. The Advertising API enforces HTTPS, therefore attempts to access an endpoint with HTTP will result in an error message.
+The Advertising API accessed on https://ads.smartnews.com/api. The Advertising API enforces HTTPS, Attempts to access an endpoint with HTTP will result in a redirect response.
 
 The Advertising API outputs JSON. All identifiers are strings and all strings are UTF-8. The Advertising API is versioned and the version is specified as the first path element of any resource URL (such as `/v1.0` or `/v2.0`).
 
@@ -19,8 +19,10 @@ The Advertising API outputs JSON. All identifiers are strings and all strings ar
 API authentication is achieved via a bearer token which identifies a single user. You can use a generated API key. You pass the API key into the `X-Auth-Api` http header like this.
 
 ```
-curl -H 'X-Auth-Api: <YOUR_API_KEY>' 'https://partners.smartnews-ads.com/api'
+curl -H 'X-Auth-Api: <YOUR_API_KEY>' 'https://ads.smartnews.com/api'
 ```
+
+> :warning: **We have migrated our domain from `partners.smartnews-ads.com` to `ads.smartnews.com`. Please be aware that access to the old domain will return a 301 redirect response after Nov 15th, 2022.**
 
 #### Time
 
