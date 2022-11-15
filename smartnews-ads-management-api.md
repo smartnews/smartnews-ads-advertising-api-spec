@@ -22,7 +22,7 @@ API authentication is achieved via a bearer token which identifies a single user
 curl -H 'X-Auth-Api: <YOUR_API_KEY>' 'https://ads.smartnews.com/api'
 ```
 
-> :warning: **We have migrated our domain from `partners.smartnews-ads.com` to `ads.smartnews.com`. Please be aware that access to the old domain will return a 301 redirect response after Nov 15th, 2022.**
+> :warning: **We have migrated our domain from `partners.smartnews-ads.com` to `ads.smartnews.com`. Please be aware that access to the old domain may return a 301 redirect response after Nov 15th, 2022.**
 
 #### Time
 
