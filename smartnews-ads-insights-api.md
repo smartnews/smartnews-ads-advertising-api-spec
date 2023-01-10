@@ -108,7 +108,7 @@ The following fields are available with the fields parameter and can be requeste
 | clicks          | number           | int          | The total number of people who have clicked on your ad. |
 | conversions     | number           | int          | The number of conversions taken on your ad. |
 | spend           | number           | float        | The total amount you've spent so far. |
-| cpm             | number           | float        | The average cost you've paid to have 1,000 impressions on your ad. |
+| cpm             | number           | float        | The average cost you've paid to have 1,000 viewable impressions on your ad. |
 | cpc             | number           | float        | The price you've paid divided by the number of clicks. |
 | ctr             | number           | float        | The number of clicks you received divided by the number of impressions. |
 | vctr            | number           | float        | The number of clicks you received divided by the number of viewable impressions. |
