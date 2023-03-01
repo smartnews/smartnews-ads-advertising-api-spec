@@ -1,4 +1,4 @@
-# SmartNews Ads Insights API - (apidoc v0.1 20151117)
+# SmartNews Ads Insights API - (apidoc v0.2 20230301)
 
 We provide a family of methods for retrieving statistics on the performance of your campaigns.
 
@@ -101,19 +101,28 @@ The following fields are available with the fields parameter and can be requeste
 
 ### Fields of insights metrics
 
-| Name            | Type             | Format       | Description                                |
-|-----------------|------------------|--------------|--------------------------------------------|
-| impressions     | number           | int          | The number of times your ad was served. |
-| viewableImpressions | number       | int          | The number of times your ad was viewable. |
-| clicks          | number           | int          | The total number of people who have clicked on your ad. |
-| conversions     | number           | int          | The number of conversions taken on your ad. |
-| spend           | number           | float        | The total amount you've spent so far. |
-| cpm             | number           | float        | The average cost you've paid to have 1,000 impressions on your ad. |
-| cpc             | number           | float        | The price you've paid divided by the number of clicks. |
-| ctr             | number           | float        | The number of clicks you received divided by the number of impressions. |
-| vctr            | number           | float        | The number of clicks you received divided by the number of viewable impressions. |
-| cvr             | number           | float        | The number of clicks you received divided by the number of conversions. |
-| cpa             | number           | float        | The cost you've paid divided by the number of conversions. |
+| Name                  | Type   | Format | Description                                                                                    |
+|-----------------------|--------|--------|------------------------------------------------------------------------------------------------|
+| impressions           | number | int    | The number of times your ad was served.                                                        |
+| viewableImpressions   | number | int    | The number of times your ad was viewable.                                                      |
+| clicks                | number | int    | The total number of people who have clicked on your ad.                                        |
+| conversions           | number | int    | The number of conversions taken on your ad.                                                    |
+| spend                 | number | float  | The total amount you've spent so far.                                                          |
+| cpm                   | number | float  | The average cost you've paid to have 1,000 impressions on your ad.                             |
+| cpc                   | number | float  | The price you've paid divided by the number of clicks.                                         |
+| ctr                   | number | float  | The number of clicks you received divided by the number of impressions.                        |
+| vctr                  | number | float  | The number of clicks you received divided by the number of viewable impressions.               |
+| cvr                   | number | float  | The number of clicks you received divided by the number of conversions.                        |
+| cpa                   | number | float  | The cost you've paid divided by the number of conversions.                                     |
+| videoViews            | number | int    | The number of times your video starts to play (100% in view).                                  |
+| videoP25Views         | number | int    | The number of times your video was played at 25 % of its length.                               |
+| videoP50Views         | number | int    | The number of times your video was played at 50 % of its length.                               |
+| videoP75Views         | number | int    | The number of times your video was played at 75 % of its length.                               |
+| videoP95Views         | number | int    | The number of times your video was played at 95 % of its length.                               |
+| videoCompleteViews    | number | int    | The number of times your video was played through their entire duration to completion.         |
+| videoCompleteViewRate | number | float  | The average percentage that your video was played through their entire duration to completion. |
+| videoAvgViewTime      | number | float  | The average time a video was played.                                                           |
+| videoAvgViewRate      | number | float  | The average percentage that the video was played.                                              |
 
 ### Fields of others
 
