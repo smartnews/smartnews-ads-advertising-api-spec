@@ -1,4 +1,4 @@
-# SmartNews Ads Insights API - (apidoc v0.2 20230227)
+# SmartNews Ads Insights API - (apidoc v0.2 20230301)
 
 We provide a family of methods for retrieving statistics on the performance of your campaigns.
 
