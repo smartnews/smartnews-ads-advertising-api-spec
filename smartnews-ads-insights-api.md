@@ -81,7 +81,7 @@ This parameters are not supported by first release. Please waiting until future 
 
 ## Fields
 
-The following fields are available with the fields parameter and can be requested with the fields parameter. Please note that metrics `videoP25Views`, `videoP50Views`, `videoP75Views`, `videoP95Views`, `videoCompleteViews`, `videoCompleteViewRate`, `videoAvgViewTime`, `videoAvgViewRate` will continue to update up to 48 hours after a video ad is served.
+The following fields are available with the fields parameter and can be requested with the fields parameter. Please note that metrics such as `videoP25Views`, `videoP50Views`, `videoP75Views`, `videoP95Views`, `videoCompleteViews`, `videoCompleteViewRate`, `videoAvgViewTime`, `videoAvgViewRate` will continue to update up to 48 hours after a video ad is served.
 
 ### Fields of identifier
 
