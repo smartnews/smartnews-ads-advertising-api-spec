@@ -101,34 +101,50 @@ The following fields are available with the fields parameter and can be requeste
 
 ### Fields of insights metrics
 
-| Name                  | Type   | Format | Description                                                                                    |
-|-----------------------|--------|--------|------------------------------------------------------------------------------------------------|
-| impressions           | number | int    | The number of times your ad was served.                                                        |
-| viewableImpressions   | number | int    | The number of times your ad was viewable.                                                      |
-| clicks                | number | int    | The total number of people who have clicked on your ad.                                        |
-| conversions           | number | int    | The number of conversions taken on your ad.                                                    |
-| spend                 | number | float  | The total amount you've spent so far.                                                          |
-| cpm                   | number | float  | The average cost you've paid to have 1,000 impressions on your ad.                             |
-| cpc                   | number | float  | The price you've paid divided by the number of clicks.                                         |
-| ctr                   | number | float  | The number of clicks you received divided by the number of impressions.                        |
-| vctr                  | number | float  | The number of clicks you received divided by the number of viewable impressions.               |
-| cvr                   | number | float  | The number of clicks you received divided by the number of conversions.                        |
-| cpa                   | number | float  | The cost you've paid divided by the number of conversions.                                     |
-| videoViews            | number | int    | The number of times your video starts to play (100% in view).                                  |
-| videoP25Views         | number | int    | The number of times your video was played at 25 % of its length.                               |
-| videoP50Views         | number | int    | The number of times your video was played at 50 % of its length.                               |
-| videoP75Views         | number | int    | The number of times your video was played at 75 % of its length.                               |
-| videoP95Views         | number | int    | The number of times your video was played at 95 % of its length.                               |
-| videoCompleteViews    | number | int    | The number of times your video was played through their entire duration to completion.         |
-| videoCompleteViewRate | number | float  | The average percentage that your video was played through their entire duration to completion. |
-| videoAvgViewTime      | number | float  | The average time a video was played.                                                           |
-| videoAvgViewRate      | number | float  | The average percentage that the video was played.                                              |
+| Name                    | Type   | Format | Description                                                                                    |
+|-------------------------|--------|--------|------------------------------------------------------------------------------------------------|
+| impressions             | number | int    | The number of times your ad was served.                                                        |
+| viewableImpressions     | number | int    | The number of times your ad was viewable.                                                      |
+| clicks                  | number | int    | The total number of people who have clicked on your ad.                                        |
+| conversions             | number | int    | The number of conversions taken on your ad.                                                    |
+| spend                   | number | float  | The total amount you've spent so far.                                                          |
+| cpm                     | number | float  | The average cost you've paid to have 1,000 impressions on your ad.                             |
+| cpc                     | number | float  | The price you've paid divided by the number of clicks.                                         |
+| ctr                     | number | float  | The number of clicks you received divided by the number of impressions.                        |
+| vctr                    | number | float  | The number of clicks you received divided by the number of viewable impressions.               |
+| cvr                     | number | float  | The number of clicks you received divided by the number of conversions.                        |
+| cpa                     | number | float  | The cost you've paid divided by the number of conversions.                                     |
+| videoViews              | number | int    | The number of times your video starts to play (100% in view).                                  |
+| videoP25Views           | number | int    | The number of times your video was played at 25 % of its length.                               |
+| videoP50Views           | number | int    | The number of times your video was played at 50 % of its length.                               |
+| videoP75Views           | number | int    | The number of times your video was played at 75 % of its length.                               |
+| videoP95Views           | number | int    | The number of times your video was played at 95 % of its length.                               |
+| videoCompleteViews      | number | int    | The number of times your video was played through their entire duration to completion.         |
+| videoCompleteViewRate   | number | float  | The average percentage that your video was played through their entire duration to completion. |
+| videoAvgViewTime        | number | float  | The average time a video was played.                                                           |
+| videoAvgViewRate        | number | float  | The average percentage that the video was played.                                              |
+| addToCart               | number | int    | The number of addToCart conversions taken on your ad.                                          |
+| purchase                | number | int    | The number of purchase conversions taken on your ad.                                           |
+| subscribe               | number | int    | The number of subscribe conversions taken on your ad.                                          |
+| completeRegistration    | number | int    | The number of completeRegistration conversions taken on your ad.                               |
+| viewContent             | number | int    | The number of viewContent conversions taken on your ad.                                        |
+| addToCartCpa            | number | float  | The cost you've paid divided by the number of addToCart conversions.                           |
+| addToCartCvr            | number | float  | The number of clicks you received divided by the addToCart conversions.                        |
+| purchaseCpa             | number | float  | The cost you've paid divided by the number of purchase conversions.                            |
+| purchaseCvr             | number | float  | The number of clicks you received divided by the purchase conversions.                         |
+| subscribeCpa            | number | float  | The cost you've paid divided by the number of subscribe conversions.                           |
+| subscribeCvr            | number | float  | The number of clicks you received divided by the subscribe conversions.                        |
+| completeRegistrationCpa | number | float  | The cost you've paid divided by the number of completeRegistration conversions.                |
+| completeRegistrationCvr | number | float  | The number of clicks you received divided by the completeRegistration conversions.             |
+| viewContentCpa          | number | float  | The cost you've paid divided by the number of viewContent conversions.                         |
+| viewContentCvr          | number | float  | The number of clicks you received divided by the viewContent conversions.                      |
 
 ### Fields of others
 
-| Name            | Type             | Format       | Description                                |
-|-----------------|------------------|--------------|--------------------------------------------|
-| breakdowns      | array            | Breakdown    | delivery breakdown information if you request `breakdowns` parameter |
+| Name                        | Type             | Format       | Description                                                          |
+|-----------------------------|------------------|--------------|----------------------------------------------------------------------|
+| breakdowns                  | array            | Breakdown    | delivery breakdown information if you request `breakdowns` parameter |
+| conversionOptimizationPoint | string           |              | The conversion optimization point of your campaign.                  |
 
 #### In future release
 
