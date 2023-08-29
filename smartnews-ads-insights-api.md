@@ -112,7 +112,7 @@ The following fields are available with the fields parameter and can be requeste
 | cpc                     | number | float  | The price you've paid divided by the number of clicks.                                         |
 | ctr                     | number | float  | The number of clicks you received divided by the number of impressions.                        |
 | vctr                    | number | float  | The number of clicks you received divided by the number of viewable impressions.               |
-| cvr                     | number | float  | The number of clicks you received divided by the number of conversions.                        |
+| cvr                     | number | float  | The number of conversions you received divided by the number of clicks.                        |
 | cpa                     | number | float  | The cost you've paid divided by the number of conversions.                                     |
 | videoViews              | number | int    | The number of times your video starts to play (100% in view).                                  |
 | videoP25Views           | number | int    | The number of times your video was played at 25 % of its length.                               |
@@ -129,15 +129,15 @@ The following fields are available with the fields parameter and can be requeste
 | completeRegistration    | number | int    | The number of completeRegistration conversions taken on your ad.                               |
 | viewContent             | number | int    | The number of viewContent conversions taken on your ad.                                        |
 | addToCartCpa            | number | float  | The cost you've paid divided by the number of addToCart conversions.                           |
-| addToCartCvr            | number | float  | The number of clicks you received divided by the addToCart conversions.                        |
+| addToCartCvr            | number | float  | The number of addToCart conversions you received divided by the number of clicks.              |
 | purchaseCpa             | number | float  | The cost you've paid divided by the number of purchase conversions.                            |
-| purchaseCvr             | number | float  | The number of clicks you received divided by the purchase conversions.                         |
+| purchaseCvr             | number | float  | The number of purchase conversions you received divided by the number of clicks.               |
 | subscribeCpa            | number | float  | The cost you've paid divided by the number of subscribe conversions.                           |
-| subscribeCvr            | number | float  | The number of clicks you received divided by the subscribe conversions.                        |
+| subscribeCvr            | number | float  | The number of subscribe conversions you received divided by the number of clicks.              |
 | completeRegistrationCpa | number | float  | The cost you've paid divided by the number of completeRegistration conversions.                |
-| completeRegistrationCvr | number | float  | The number of clicks you received divided by the completeRegistration conversions.             |
+| completeRegistrationCvr | number | float  | The number of completeRegistration conversions you received divided by the number of clicks.   |
 | viewContentCpa          | number | float  | The cost you've paid divided by the number of viewContent conversions.                         |
-| viewContentCvr          | number | float  | The number of clicks you received divided by the viewContent conversions.                      |
+| viewContentCvr          | number | float  | The number of viewContent conversions you received divided by the number of clicks.            |
 
 ### Fields of others
 
