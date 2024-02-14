@@ -4,7 +4,7 @@
 - [SmartNews Ads Insights API](smartnews-ads-insights-api.md)
 
 # Ads Manager V2 (AMv2) Update for API Users
-To facilitate a smooth transition to Ads Manager V2 (AMv2), AMv2 data will be integrated into our existing public RESTful APIs. This integration allows for a smooth transition from Ads Manager V1 (AMv1) to AMv2, ensuring that our users can access the latest features without disruption.
+To facilitate a smooth transition to Ads Manager V2 (AMv2), AMv2 data will be integrated into our existing public RESTful APIs. This integration allows a smooth transition from Ads Manager V1 (AMv1) to AMv2, ensuring that our users can access the latest features without disruption.
 
 ## Accessing AMv2 Data
 AMv2 data is automatically available alongside AMv1 data in the following API endpoints:
