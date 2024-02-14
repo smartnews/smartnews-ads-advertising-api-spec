@@ -21,7 +21,7 @@ AMv2 data is automatically available alongside AMv1 data in the following API en
 To help you easily identify AMv2 data:
 
 - All AMv2 objects within the endpoints will include a nested object named `amV2`. This object's presence indicates that the data is from Ads Manager V2.
-- AMv1 data will not contain the `amV2` nested object, allowing users to differentiate between data from AMv1 and AMv2 seamlessly.
+- The `amV2` object of AMv1 data will be always `null`, allowing users to differentiate between data from AMv1 and AMv2 seamlessly.
 - The structure and location of the `amV2` object may vary depending on the endpoint. To understand exactly where to find the `amV2` object for each specific endpoint, please refer to the detailed API documentation.
 
 ## Release Schedule
