@@ -17,6 +17,15 @@ AMv2 data is automatically available alongside AMv1 data in the following API en
 - `GET /api/v1.0/creatives/{creativeId}`
 - `GET /api/v1.0/campaigns/{campaignId}/creatives`
 
+## Mapping of AMv2 Objects to Existing API Format
+To maintain compatibility with existing workflows, it's important to understand how AMv2 objects map to the current API format. Below is a table that outlines these mappings:
+
+| AMv2 Object | AMv1 API mapping  |
+| ----------- | ----------------- |
+| Campaign     | Not directly mapped; information available through the [`amV2` object.](#distinguishing-amv2-data) |
+| Ad Group  | Mapped to AMv1 Campaigns. |
+| Ad | Mapped to AMv1 Creatives. |
+
 ## Distinguishing AMv2 Data
 To help you easily identify AMv2 data:
 
