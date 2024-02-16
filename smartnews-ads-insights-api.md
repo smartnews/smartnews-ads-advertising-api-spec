@@ -155,6 +155,94 @@ These metrics are supported by future version.
 | frequency       | number           | float        | The average number of times your ad was served to each person. |
 | reach           | number           | int          | The number of people your ad was served to. |
 
+# AMv2 support (Scheduled to release at TBD)
+
+> Please be familiarized with the [general information of Ads Manager V2 support](./README.md#ads-manager-v2-amv2-support) first.
+
+## AMv2 Object
+For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to the first level of each element of the data array.
+
+### `amV2` object
+
+| Name         | Type   | Format | Description                       |
+|--------------|--------|--------|-----------------------------------|
+| campaignId   | string |        | The identifier of the 3L campaign |
+| adGroupId    | string |        | The identifier of the 3L ad group |
+| campaignName | string |        | The name of the 3L campaign       |
+| adGroupName  | string |        | The name of the 3L ad group       |
+
+## Unsupported parameters and response fields of AMv2 Data
+Because of the difference in the product specification of AMv1 and AMv2, the following request parameters and response fields will not available for AMv2 Data.
+
+### Unsupported request parameters
+Providing any of the below unsupported parameters doesn't result in a bad request, however, they have no effect on the AMv2 data.
+
+| Name       | Value | Description                                      |
+|------------|-------|--------------------------------------------------|
+| breakdowns | *ALL* | AMv2 data do not have any breakdown insight      |
+| format     | `csv` | The resulting CSV does not contain any AMv2 data |
+
+### Unsupported response fields
+
+| Name                   | Description                               |
+|------------------------|-------------------------------------------|
+| impressions            | this field is always `0` for AMv2 data    |
+| conversions            | this field is always `0` for AMv2 data    |
+| ctr                    | this field is always `0` for AMv2 data    |
+| cvr                    | this field is always `0` for AMv2 data    |
+| cpa                    | this field is always `0` for AMv2 data    |
+| videoP100Views         | this field is always `0` for AMv2 data    | 
+| skAdNetworkConversions | this field is always `null` for AMv2 Data | 
+
+### Example
+```json
+{
+  "data": [
+    // in case of a AMv2 object
+    {
+      "amV2": {
+        "campaignId": "10000001",
+        "adGroupId": "10000002",
+        "campaignName": "AMv2 Campaign",
+        "adGroupName": "AMv2 Ad Group"
+      },
+      "accountId": "10000000",
+      "campaignId": "10000002", // AMv2 Ad Group ID
+      "clicks": 10,
+      // ...
+      // the following fields are not supported for AMv2 object
+      "impressions": 0,
+      "conversions": 0,
+      "ctr": 0,
+      "cvr": 0,
+      "cpa": 0,
+      "videoP100Views": 0,
+      "skAdNetworkConversions": null,
+      // AMv2 data doesn't support any breakdown 
+      "insights": []
+    },
+    // in case of a AMv1 object
+    {
+      "amV2": null, // set to null
+      "accountId": "10000000",
+      "campaignId": "11000003",
+      "impressions": 100,
+      "clicks": 10,
+      "ctr": 0.1,
+      //...
+      "insights": [
+        {
+          // amV2 is also included in the breakdown insight, but it is always null 
+          "amV2": null, 
+          "breakdowns": [{"type": "publisher", "value": "smartnews"}],
+          //...
+        }
+      ]
+    }
+  ]
+}
+```
+
 # Appendix
 
 ## Reference
