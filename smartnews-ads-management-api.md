@@ -169,6 +169,86 @@ Note: Campaigns that has Dynamic Creative ON can not be retrieved through this A
 }
 ```
 
+##### AMv2 support (Scheduled to release at TBD)
+
+> Please be familiarized with the [general information of Ads Manager V2 support](./README.md#ads-manager-v2-amv2-support) first.
+
+###### AMv2 Object
+For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to the first level of each element of the data array.
+
+###### `amV2` object
+
+| Name                     | Type   | Format | Description                                                                          |
+|--------------------------|--------|--------|--------------------------------------------------------------------------------------|
+| campaignId               | string |        | The identifier of the 3L campaign                                                    |
+| adGroupId                | string |        | The identifier of the 3L ad group                                                    |
+| campaignName             | string |        | The name of the 3L campaign                                                          |
+| adGroupName              | string |        | The name of the 3L ad group                                                          |
+| campaignConfiguredStatus | string |        | The configured status of campaign with possible values as ACTIVE, PAUSED, or DELETED |
+| adGroupConfiguredStatus  | string |        | The configured status of ad group with possible values as ACTIVE, PAUSED, or DELETED | 
+| campaignSpendingLimit    | number | long   | The spending limit of the campaign                                                   | 
+| campaignDailyBudget      | number | long   | The daily budget of the campaign                                                     | 
+
+
+###### Unsupported response fields of AMv2 Data
+Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
+
+| Name                 | Description                                                                   |
+|----------------------|-------------------------------------------------------------------------------|
+| sponsoredName        | The sponsor name for this campaign. It is used by advertising display.        |
+| appSpec              | The application information. (it is available if actionType is `APP_INSTALL`) |
+| isDynamicCreative    |                                                                               |
+| creativeType         |                                                                               |
+| features             |                                                                               |
+| targeting            |                                                                               |
+
+###### Example
+
+```json5
+{
+  "data": [
+    // AMv1 campaign example
+    {
+      "name": "SmartNews Installs 7/12",
+      "actionType": "APP_INSTALL",
+      "campaignId": "1000003",
+      "accountId": "1000000",
+      "approvalStatus": "PENDING",
+      "enable": false,
+      "startTime": "2015-07-01T13:40:00Z",
+      "endTime": "2015-07-29T13:40:00Z",
+      "totalBudget": 20000,
+      "dailyBudget": 5000,
+      "bidAmount": 30,
+      "updatedAt": "2015-06-25T13:40:00Z"
+    },
+    // AMv2 Ad Group example
+    {
+      "name": "AMv2 Ad Group Name",
+      "actionType": "WEBSITE_CONVERSION",
+      "objective": "WEBSITE_CONVERSION",
+      "campaignId": "1000004",
+      "accountId": "1000000",
+      "status": "NORMAL",
+      "approvalStatus": null, //Always Null for AMv2 data
+      "enable": false,
+      "startTime": "2015-08-01T13:40:00Z",
+      "endTime": "2099-12-31T23:59:59Z",
+      "totalBudget": 0,
+      "dailyBudget": 0,
+      "bidAmount": 30,
+      "targetCpa": 30,
+      "billingEvent": "CLICK",
+      "biddingStrategy": "MAXIMIZE_CLICKS",
+      "trackingSpec": null,
+      "targeting": null,
+      "isAutoBid": false,
+      "updatedAt": "2015-06-25T13:40:00Z",
+    }
+  ]
+}
+```
+
 #### GET /v1.0/campaigns/{campaignId}
 
 Retrieve details for a specific campaign.
