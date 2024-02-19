@@ -251,8 +251,8 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
         "adGroupName": "AMv2 Ad Group",
         "campaignConfiguredStatus": "ACTIVE",
         "adGroupConfiguredStatus": "ACTIVE",
-        "campaignSpendingLimit": "100000",
-        "campaignDailyBudget": "1000"
+        "campaignSpendingLimit": 100000,
+        "campaignDailyBudget": 1000
       }
     }
   ]
@@ -385,8 +385,8 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
       "adGroupName": "AMv2 Ad Group",
       "campaignConfiguredStatus": "ACTIVE",
       "adGroupConfiguredStatus": "ACTIVE",
-      "campaignSpendingLimit": "100000",
-      "campaignDailyBudget": "1000"
+      "campaignSpendingLimit": 100000,
+      "campaignDailyBudget": 1000
     }
   }
 }
