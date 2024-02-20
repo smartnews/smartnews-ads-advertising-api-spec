@@ -186,8 +186,8 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 | adGroupName              | string |        | The name of the 3L ad group                                                          |
 | campaignConfiguredStatus | string |        | The configured status of campaign with possible values as ACTIVE, PAUSED, or DELETED |
 | adGroupConfiguredStatus  | string |        | The configured status of ad group with possible values as ACTIVE, PAUSED, or DELETED | 
-| campaignSpendingLimit    | number | long   | The spending limit of the campaign                                                   | 
-| campaignDailyBudget      | number | long   | The daily budget of the campaign                                                     | 
+| campaignSpendingLimit    | number | long   | The spending limit of the campaign in unit of JPY                                    | 
+| campaignDailyBudget      | number | long   | The daily budget of the campaign in unit of JPY                                      | 
 
 
 ###### Unsupported response fields of AMv2 Data
@@ -343,8 +343,8 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 | adGroupName              | string |        | The name of the 3L ad group                                                          |
 | campaignConfiguredStatus | string |        | The configured status of campaign with possible values as ACTIVE, PAUSED, or DELETED |
 | adGroupConfiguredStatus  | string |        | The configured status of ad group with possible values as ACTIVE, PAUSED, or DELETED | 
-| campaignSpendingLimit    | number | long   | The spending limit of the campaign                                                   | 
-| campaignDailyBudget      | number | long   | The daily budget of the campaign                                                     | 
+| campaignSpendingLimit    | number | long   | The spending limit of the campaign in unit of JPY                                    | 
+| campaignDailyBudget      | number | long   | The daily budget of the campaign in unit of JPY                                      | 
 
 
 ###### Unsupported response fields of AMv2 Data
