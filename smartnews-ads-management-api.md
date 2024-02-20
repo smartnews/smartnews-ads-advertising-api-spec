@@ -193,14 +193,15 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 ###### Unsupported response fields of AMv2 Data
 Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
 
-| Name                 | Description                                                                   |
-|----------------------|-------------------------------------------------------------------------------|
-| sponsoredName        | The sponsor name for this campaign. It is used by advertising display.        |
-| appSpec              | The application information. (it is available if actionType is `APP_INSTALL`) |
-| isDynamicCreative    |                                                                               |
-| creativeType         |                                                                               |
-| features             |                                                                               |
-| targeting            |                                                                               |
+| Name                 | Description                                 |
+|----------------------|---------------------------------------------|
+| sponsoredName        | This field is always `null` for AMv2 Data   |
+| appSpec              | This field is always `null` for AMv2 Data   |
+| trackingSpec         | This field is always `null` for AMv2 Data   |
+| isDynamicCreative    | This field is always `null` for AMv2 Data   |
+| creativeType         | This field is always `null` for AMv2 Data   |
+| features             | This field is always `null` for AMv2 Data   |
+| targeting            | This field is always `null` for AMv2 Data   |
 
 ###### Example
 
@@ -225,7 +226,10 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
     // AMv2 Ad Group example
     {
       "name": "AMv2 Ad Group",
+      "sponsoredName": null,
       "actionType": "WEBSITE_CONVERSION",
+      "creativeType": null,
+      "isDynamicCreative": null,
       "objective": "WEBSITE_CONVERSION",
       "campaignId": "1000002",
       "accountId": "1000000",
@@ -240,7 +244,9 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
       "targetCpa": 1000,
       "billingEvent": "CLICK",
       "biddingStrategy": "MAXIMIZE_CLICKS",
+      "appSpec": null,
       "trackingSpec": null,
+      "features": null,
       "targeting": null,
       "isAutoBid": false,
       "updatedAt": "2015-06-25T13:40:00Z",
@@ -344,14 +350,15 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 ###### Unsupported response fields of AMv2 Data
 Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
 
-| Name                 | Description                                                                   |
-|----------------------|-------------------------------------------------------------------------------|
-| sponsoredName        | The sponsor name for this campaign. It is used by advertising display.        |
-| appSpec              | The application information. (it is available if actionType is `APP_INSTALL`) |
-| isDynamicCreative    |                                                                               |
-| creativeType         |                                                                               |
-| features             |                                                                               |
-| targeting            |                                                                               |
+| Name                 | Description                                |
+|----------------------|--------------------------------------------|
+| sponsoredName        | This field is always `null` for AMv2 Data  |
+| appSpec              | This field is always `null` for AMv2 Data  |
+| trackingSpec         | This field is always `null` for AMv2 Data  |
+| isDynamicCreative    | This field is always `null` for AMv2 Data  |
+| creativeType         | This field is always `null` for AMv2 Data  |
+| features             | This field is always `null` for AMv2 Data  |
+| targeting            | This field is always `null` for AMv2 Data  |
 
 ###### Example
 
@@ -359,8 +366,11 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 {
   "data": {
     "name": "AMv2 Ad Group",
+    "sponsoredName": null,
     "actionType": "WEBSITE_CONVERSION",
     "objective": "WEBSITE_CONVERSION",
+    "creativeType": null,
+    "isDynamicCreative": null,
     "campaignId": "1000002",  // The identifier of 3L ad group
     "accountId": "1000000",
     "status": "NORMAL",
@@ -374,7 +384,9 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
     "targetCpa": 1000,
     "billingEvent": "CLICK",
     "biddingStrategy": "MAXIMIZE_CLICKS",
+    "appSpec": null,
     "trackingSpec": null,
+    "features": null,
     "targeting": null,
     "isAutoBid": false,
     "updatedAt": "2024-02-15T13:40:00Z",
