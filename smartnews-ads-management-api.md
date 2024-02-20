@@ -193,15 +193,17 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 ###### Unsupported response fields of AMv2 Data
 Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
 
-| Name                 | Description                                 |
-|----------------------|---------------------------------------------|
-| sponsoredName        | This field is always `null` for AMv2 Data   |
-| appSpec              | This field is always `null` for AMv2 Data   |
-| trackingSpec         | This field is always `null` for AMv2 Data   |
-| isDynamicCreative    | This field is always `null` for AMv2 Data   |
-| creativeType         | This field is always `null` for AMv2 Data   |
-| features             | This field is always `null` for AMv2 Data   |
-| targeting            | This field is always `null` for AMv2 Data   |
+| Name              | Description                               |
+|-------------------|-------------------------------------------|
+| sponsoredName     | This field is always `null` for AMv2 Data |
+| appSpec           | This field is always `null` for AMv2 Data |
+| trackingSpec      | This field is always `null` for AMv2 Data |
+| isDynamicCreative | This field is always `null` for AMv2 Data |
+| creativeType      | This field is always `null` for AMv2 Data |
+| features          | This field is always `null` for AMv2 Data |
+| targeting         | This field is always `null` for AMv2 Data |
+| approvalStatus    | This field is always `null` for AMv2 Data |
+| trackingSpec      | This field is always `null` for AMv2 Data |
 
 ###### Example
 
@@ -350,15 +352,17 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 ###### Unsupported response fields of AMv2 Data
 Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
 
-| Name                 | Description                                |
-|----------------------|--------------------------------------------|
-| sponsoredName        | This field is always `null` for AMv2 Data  |
-| appSpec              | This field is always `null` for AMv2 Data  |
-| trackingSpec         | This field is always `null` for AMv2 Data  |
-| isDynamicCreative    | This field is always `null` for AMv2 Data  |
-| creativeType         | This field is always `null` for AMv2 Data  |
-| features             | This field is always `null` for AMv2 Data  |
-| targeting            | This field is always `null` for AMv2 Data  |
+| Name              | Description                               |
+|-------------------|-------------------------------------------|
+| sponsoredName     | This field is always `null` for AMv2 Data |
+| appSpec           | This field is always `null` for AMv2 Data |
+| trackingSpec      | This field is always `null` for AMv2 Data |
+| isDynamicCreative | This field is always `null` for AMv2 Data |
+| creativeType      | This field is always `null` for AMv2 Data |
+| features          | This field is always `null` for AMv2 Data |
+| targeting         | This field is always `null` for AMv2 Data |
+| approvalStatus    | This field is always `null` for AMv2 Data |
+| trackingSpec      | This field is always `null` for AMv2 Data |
 
 ###### Example
 
@@ -654,7 +658,7 @@ true
 
 #### GET /v1.0/campaigns/{campaignId}/creatives
 
-Retrieve creative information associated with the current campaign.
+Retrieve the list of creatives for the specified `campaignId`.
 
 ##### Example Response
 
@@ -684,9 +688,6 @@ For general image or video creative
         }
       },
       "trackingUrl": "http://foo.trackingsystem.com/?a=b&c=d&e=f",
-      "targeting": {
-        "genres": ["1", "2"]
-      },
       "approvalStatus": "PENDING",
       "merchandiseCatalogId": "1000024",
       "urlTags": "utm_source=smartnews&key=val"
@@ -739,9 +740,86 @@ You can determine if the carousel feature is enabled by the `isStoryCreative` fl
 
 ```
 
+##### AMv2 support (Scheduled to release at TBD)
+
+> Please be familiarized with the [general information of Ads Manager V2 support](./README.md#ads-manager-v2-amv2-support) first.
+
+###### AMv2 Object
+For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to the first level of each element of the data array.
+
+###### `amV2` object
+
+| Name                     | Type   | Format | Description                                                                          |
+|--------------------------|--------|--------|--------------------------------------------------------------------------------------|
+| campaignId               | string |        | The identifier of the 3L campaign                                                    |
+| adGroupId                | string |        | The identifier of the 3L ad group                                                    |
+| adId                     | string |        | The identifier of the 3L ad                                                          |
+| campaignName             | string |        | The name of the 3L campaign                                                          |
+| adGroupName              | string |        | The name of the 3L ad group                                                          |
+| adName                   | string |        | The name of the 3L ad                                                                |
+| campaignConfiguredStatus | string |        | The configured status of campaign with possible values as ACTIVE, PAUSED, or DELETED |
+| adGroupConfiguredStatus  | string |        | The configured status of ad group with possible values as ACTIVE, PAUSED, or DELETED | 
+| adConfiguredStatus       | string |        | The configured status of ad with possible values as ACTIVE, PAUSED, or DELETED       |
+| adCreativeFormatType     | string |        | The format of the Creative that defines the view attribution of the 3L ad            |
+
+###### Unsupported response fields of AMv2 Data
+Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
+
+| Name                 | Description                               |
+|----------------------|-------------------------------------------|
+| urlTags              | This field is always `null` for AMv2 Data |
+| skanMeasurement      | This field is always `null` for AMv2 Data |
+| merchandiseCatalogId | This field is always `null` for AMv2 Data |
+| measurements         | This field is always `null` for AMv2 Data |
+| trackingUrl          | This field is always `null` for AMv2 Data |
+
+###### Example
+
+```json5
+{
+  "data": [
+    {
+      "name": "label for creative management",
+      "creativeId": "1000013",
+      "enable": false,
+      "title": "Trending News & Stories",
+      "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
+      "imageset": {
+        "a": {
+          "imageId": "1000015",
+          "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg",
+          "thumbnailUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg",
+          "width": 300,
+          "height": 300,
+          "filename": "aaa.jpg"
+        }
+      },
+      "approvalStatus": "PENDING",
+      "urlTags": null,
+      "skanMeasurement": null,
+      "merchandiseCatalogId": null,
+      "measurements": null,
+      "trackingUrl": null,
+      "amV2": {
+        "campaignId": "10000001",
+        "adGroupId": "10000002",
+        "adId": "10000003",
+        "campaignName": "AMv2 Campaign",
+        "adGroupName": "AMv2 Ad Group",
+        "adName": "AMv2 Ad",
+        "campaignConfiguredStatus": "ACTIVE",
+        "adGroupConfiguredStatus": "ACTIVE",
+        "adConfiguredStatus": "ACTIVE",
+        "adCreativeFormatType": "IMAGE"
+      }
+    }
+  ]
+}
+```
+
 #### GET /v1.0/creatives/{creativeId}
 
-Retrieve creative information.
+Retrieve the detail of a creative for the specified `creativeId`.
 
 ##### Example Response
 
@@ -768,12 +846,82 @@ Retrieve creative information.
       }
     },
     "trackingUrl": "http://foo.trackingsystem.com/?a=b&c=d&e=f",
-    "targeting": {
-      "genres": ["1", "2"]
-    },
     "approvalStatus": "PENDING",
     "merchandiseCatalogId": "1000024",
     "urlTags": "utm_source=smartnews&key=val"
+  }
+}
+```
+
+##### AMv2 support (Scheduled to release at TBD)
+
+> Please be familiarized with the [general information of Ads Manager V2 support](./README.md#ads-manager-v2-amv2-support) first.
+
+###### AMv2 Object
+For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to the first level of each element of the data array.
+
+###### `amV2` object
+
+| Name                     | Type   | Format | Description                                                                          |
+|--------------------------|--------|--------|--------------------------------------------------------------------------------------|
+| campaignId               | string |        | The identifier of the 3L campaign                                                    |
+| adGroupId                | string |        | The identifier of the 3L ad group                                                    |
+| adId                     | string |        | The identifier of the 3L ad                                                          |
+| campaignName             | string |        | The name of the 3L campaign                                                          |
+| adGroupName              | string |        | The name of the 3L ad group                                                          |
+| adName                   | string |        | The name of the 3L ad                                                                |
+| campaignConfiguredStatus | string |        | The configured status of campaign with possible values as ACTIVE, PAUSED, or DELETED |
+| adGroupConfiguredStatus  | string |        | The configured status of ad group with possible values as ACTIVE, PAUSED, or DELETED | 
+| adConfiguredStatus       | string |        | The configured status of ad with possible values as ACTIVE, PAUSED, or DELETED       |
+| adCreativeFormatType     | string |        | The format of the Creative that defines the view attribution of the 3L ad            |
+
+###### Unsupported response fields of AMv2 Data
+Because of the difference in the product specification of AMv1 and AMv2, the following response fields will not available for AMv2 Data.
+
+| Name                 | Description                               |
+|----------------------|-------------------------------------------|
+| urlTags              | This field is always `null` for AMv2 Data |
+| skanMeasurement      | This field is always `null` for AMv2 Data |
+| merchandiseCatalogId | This field is always `null` for AMv2 Data |
+| measurements         | This field is always `null` for AMv2 Data |
+| trackingUrl          | This field is always `null` for AMv2 Data |
+
+```json5
+{
+  "data": {
+    "name": "label for creative management",
+    "creativeId": "1000013",
+    "enable": false,
+    "title": "Trending News & Stories",
+    "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
+    "imageset": {
+      "a": {
+        "imageId": "1000015",
+        "imageUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg",
+        "thumbnailUrl": "http://creative.smartnews-ads.com/path/to/aaa.jpg",
+        "width": 300,
+        "height": 300,
+        "filename": "aaa.jpg"
+      }
+    },
+    "approvalStatus": "PENDING",
+    "urlTags": null,
+    "skanMeasurement": null,
+    "merchandiseCatalogId": null,
+    "measurements": null,
+    "trackingUrl": null,
+    "amV2": {
+      "campaignId": "10000001",
+      "adGroupId": "10000002",
+      "adId": "10000003",
+      "campaignName": "AMv2 Campaign",
+      "adGroupName": "AMv2 Ad Group",
+      "adName": "AMv2 Ad",
+      "campaignConfiguredStatus": "ACTIVE",
+      "adGroupConfiguredStatus": "ACTIVE",
+      "adConfiguredStatus": "ACTIVE",
+      "adCreativeFormatType": "IMAGE"
+    }
   }
 }
 ```
@@ -1133,15 +1281,16 @@ Retrieve available cities for targeting.
 
 #### Creative
 
-| Name                               | Type             | Format            | Required | Spec         |
-|------------------------------------|------------------|-------------------|----------|--------------|
-| name                               | string           |                   | Y        | (and nonEmpty (maxLength 128)) |
-| title                              | string           |                   | Y        | (and (minLength 10) (maxLength 25)) |
-| text                               | string           |                   | Y        | (and (minLength 10) (maxLength 90)) |
-| imageset                           | object           | CreativeImageSet  | Y        | |
-| linkUrl                            | string           |                   | Y        | (and nonEmpty (maxLength 1024) looseUrl) |
-| trackingUrl                        | string           |                   | N        | (and nonEmpty (maxLength 1024) looseUrl) |
-| targeting                          | object           | CreativeTargeting | Y        | |
+| Name        | Type   | Format           | Required | Spec                                                                                                               |
+|-------------|--------|------------------|----------|--------------------------------------------------------------------------------------------------------------------|
+| name        | string |                  | Y        | (and nonEmpty (maxLength 128))                                                                                     |
+| title       | string |                  | Y        | (and (minLength 10) (maxLength 25))                                                                                |
+| text        | string |                  | Y        | (and (minLength 10) (maxLength 90))                                                                                |
+| imageset    | object | CreativeImageSet | N        |                                                                                                                    |
+| video       | object |                  | N        |                                                                                                                    |
+| assetGroups | object |                  | N        | Exist only when `is_story_creative = ture` for 2L creatives or `creative.format_type == CAROUSEL` for 3L creatives |
+| linkUrl     | string |                  | Y        | (and nonEmpty (maxLength 1024) looseUrl)                                                                           |
+| trackingUrl | string |                  | N        | (and nonEmpty (maxLength 1024) looseUrl)                                                                           |
 
 #### CreativeImage
 
@@ -1151,11 +1300,12 @@ Retrieve available cities for targeting.
 
 #### CreativeImageSet
 
-| Name                               | Type             | Format         | Required | Spec         |
-|------------------------------------|------------------|----------------|----------|--------------|
-| a                                  | object           | CreativeImage  | Y        |              |
-| b                                  | object           | CreativeImage  | Y        |              |
-| c                                  | object           | CreativeImage  | Y        |              |
+| Name | Type             | Format         | Required | Spec         |
+|------|------------------|----------------|----------|--------------|
+| a    | object           | CreativeImage  | Y        |              |
+| b    | object           | CreativeImage  | Y        |              |
+| c    | object           | CreativeImage  | Y        |              |
+| e    | object           | CreativeImage  | Y        |              |
 
 #### CreativeTargeting
 
