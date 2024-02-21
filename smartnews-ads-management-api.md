@@ -203,7 +203,6 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 | features          | This field is always `null` for AMv2 Data |
 | targeting         | This field is always `null` for AMv2 Data |
 | approvalStatus    | This field is always `null` for AMv2 Data |
-| trackingSpec      | This field is always `null` for AMv2 Data |
 
 ###### Example
 
@@ -362,7 +361,6 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 | features          | This field is always `null` for AMv2 Data |
 | targeting         | This field is always `null` for AMv2 Data |
 | approvalStatus    | This field is always `null` for AMv2 Data |
-| trackingSpec      | This field is always `null` for AMv2 Data |
 
 ###### Example
 
