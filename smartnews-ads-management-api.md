@@ -198,9 +198,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 | sponsoredName     | This field is always `null` for AMv2 Data |
 | appSpec           | This field is always `null` for AMv2 Data |
 | trackingSpec      | This field is always `null` for AMv2 Data |
-| isDynamicCreative | This field is always `null` for AMv2 Data |
 | creativeType      | This field is always `null` for AMv2 Data |
-| features          | This field is always `null` for AMv2 Data |
 | targeting         | This field is always `null` for AMv2 Data |
 | approvalStatus    | This field is always `null` for AMv2 Data |
 
@@ -230,8 +228,6 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
       "sponsoredName": null,
       "actionType": "WEBSITE_CONVERSION",
       "creativeType": null,
-      "isDynamicCreative": null,
-      "objective": "WEBSITE_CONVERSION",
       "campaignId": "1000002",
       "accountId": "1000000",
       "status": "NORMAL",
@@ -244,10 +240,8 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
       "bidAmount": 1000,
       "targetCpa": 1000,
       "billingEvent": "CLICK",
-      "biddingStrategy": "MAXIMIZE_CLICKS",
       "appSpec": null,
       "trackingSpec": null,
-      "features": null,
       "targeting": null,
       "isAutoBid": false,
       "updatedAt": "2015-06-25T13:40:00Z",
@@ -356,9 +350,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 | sponsoredName     | This field is always `null` for AMv2 Data |
 | appSpec           | This field is always `null` for AMv2 Data |
 | trackingSpec      | This field is always `null` for AMv2 Data |
-| isDynamicCreative | This field is always `null` for AMv2 Data |
 | creativeType      | This field is always `null` for AMv2 Data |
-| features          | This field is always `null` for AMv2 Data |
 | targeting         | This field is always `null` for AMv2 Data |
 | approvalStatus    | This field is always `null` for AMv2 Data |
 
@@ -370,9 +362,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
     "name": "AMv2 Ad Group",
     "sponsoredName": null,
     "actionType": "WEBSITE_CONVERSION",
-    "objective": "WEBSITE_CONVERSION",
     "creativeType": null,
-    "isDynamicCreative": null,
     "campaignId": "1000002",  // The identifier of 3L ad group
     "accountId": "1000000",
     "status": "NORMAL",
@@ -385,10 +375,8 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
     "bidAmount": 1000,
     "targetCpa": 1000,
     "billingEvent": "CLICK",
-    "biddingStrategy": "MAXIMIZE_CLICKS",
     "appSpec": null,
     "trackingSpec": null,
-    "features": null,
     "targeting": null,
     "isAutoBid": false,
     "updatedAt": "2024-02-15T13:40:00Z",
