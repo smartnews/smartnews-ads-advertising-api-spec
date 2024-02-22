@@ -191,11 +191,12 @@ Providing any of the below unsupported parameters doesn't result in a bad reques
 | ctr                    | this field is always `0` for AMv2 data    |
 | cvr                    | this field is always `0` for AMv2 data    |
 | cpa                    | this field is always `0` for AMv2 data    |
-| videoP100Views         | this field is always `0` for AMv2 data    | 
+| videoP100Views         | this field is always `null` for AMv2 data | 
 | videoAvgViewRate       | this field is always `null` for AMv2 data |
 | videoAvgViewTime       | this field is always `null` for AMv2 data |
 | videoLength            | this field is always `null` for AMv2 data |
 | skAdNetworkConversions | this field is always `null` for AMv2 Data |
+| accountName            | this field is always `null` for AMv2 Data |
 
 ### Example
 ```json
