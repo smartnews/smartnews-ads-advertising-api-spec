@@ -228,7 +228,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
       "sponsoredName": null,
       "actionType": "WEBSITE_CONVERSION",
       "creativeType": null,
-      "campaignId": "1000002",
+      "campaignId": "10000002",
       "accountId": "1000000",
       "status": "NORMAL",
       "approvalStatus": null, //Always Null for AMv2 data
@@ -363,7 +363,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
     "sponsoredName": null,
     "actionType": "WEBSITE_CONVERSION",
     "creativeType": null,
-    "campaignId": "1000002",  // The identifier of 3L ad group
+    "campaignId": "10000002",  // The identifier of 3L ad group
     "accountId": "1000000",
     "status": "NORMAL",
     "approvalStatus": null,
