@@ -228,7 +228,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
       "sponsoredName": null,
       "actionType": "WEBSITE_CONVERSION",
       "creativeType": null,
-      "campaignId": "1000002",
+      "campaignId": "10000002",
       "accountId": "1000000",
       "status": "NORMAL",
       "approvalStatus": null, //Always Null for AMv2 data
@@ -363,7 +363,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
     "sponsoredName": null,
     "actionType": "WEBSITE_CONVERSION",
     "creativeType": null,
-    "campaignId": "1000002",  // The identifier of 3L ad group
+    "campaignId": "10000002",  // The identifier of 3L ad group
     "accountId": "1000000",
     "status": "NORMAL",
     "approvalStatus": null,
@@ -766,7 +766,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
   "data": [
     {
       "name": "label for creative management",
-      "creativeId": "1000013",
+      "creativeId": "10000003",
       "enable": false,
       "title": "Trending News & Stories",
       "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
@@ -876,7 +876,7 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 {
   "data": {
     "name": "label for creative management",
-    "creativeId": "1000013",
+    "creativeId": "10000003",
     "enable": false,
     "title": "Trending News & Stories",
     "text": "Your news in one minute. Get the award-winning, addictively simple news app downloaded by over 12 million readers in 150 countries!",
