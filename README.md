@@ -38,7 +38,11 @@ To help you easily identify AMv2 data:
 ## Release Schedule
 Starting from the end of February 2024, AMv2 data support across our API endpoints will be rolled out in a phased approach, with the rollout expected to be complete by mid March 2024. Below is the provisional order of release for AMv2 data support:
 
-1. `amV2` field is added for all the following endpoints.
+
+### Released items
+1. `amV2` field is added to responses for insights API endpoints. 
+
+### Upcoming items
 1. [`GET /api/v1.0/creatives/{creativeId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 1. [`GET /api/v1.0/campaigns/{campaignId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 1. [`GET /api/v1.0/accounts/{accountId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
