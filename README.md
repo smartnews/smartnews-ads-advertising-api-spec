@@ -41,6 +41,7 @@ Starting from the end of February 2024, AMv2 data support across our API endpoin
 
 ### Released items
 1. `amV2` field is added to responses for insights API endpoints. 
+1. [`GET /api/v1.0/creatives/{creativeId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 
 ### Upcoming items
 1. [`GET /api/v1.0/creatives/{creativeId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
