@@ -44,7 +44,6 @@ Starting from the end of February 2024, AMv2 data support across our API endpoin
 1. [`GET /api/v1.0/creatives/{creativeId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 
 ### Upcoming items
-1. [`GET /api/v1.0/creatives/{creativeId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 1. [`GET /api/v1.0/campaigns/{campaignId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 1. [`GET /api/v1.0/accounts/{accountId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
 1. [`GET /api/v1.0/campaigns/{campaignId}`](./smartnews-ads-management-api.md#get-v10campaignscampaignid) and [`GET /api/v1.0/accounts/{accountId}/campaigns`](./smartnews-ads-management-api.md#get-v10accountsaccountidcampaigns)
