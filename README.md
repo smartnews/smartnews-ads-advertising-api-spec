@@ -35,6 +35,13 @@ To help you easily identify AMv2 data:
 - The `amV2` object of AMv1 data will be always `null`, allowing users to differentiate between data from AMv1 and AMv2 seamlessly.
 - The structure and location of the `amV2` object may vary depending on the endpoint. To understand exactly where to find the `amV2` object for each specific endpoint, please refer to the detailed API documentation.
 
+# Notice
+> [!IMPORTANT]  
+> Due to system maintenance, all APIs will be unavailable from 8:00 AM to 9:00 AM JST on March 18, 2024. During the maintenance, the following response will be returned:
+> ```json
+> {"error":{"type":"UNDER_MAINTENANCE","message":"The service is under maintenance. Please try again later.","retriable":true}}
+> ```
+
 ## Release Schedule
 Starting from the end of February 2024, AMv2 data support across our API endpoints will be rolled out in a phased approach, with the rollout expected to be complete by mid March 2024. Below is the provisional order of release for AMv2 data support:
 
