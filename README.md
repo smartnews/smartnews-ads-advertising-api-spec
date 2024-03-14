@@ -37,7 +37,7 @@ To help you easily identify AMv2 data:
 
 # Notice
 > [!IMPORTANT]  
-> Due to system maintenance, all APIs will be unavailable from 8:00 AM to 9:00 AM JST on March 18, 2024. During the maintenance, the following response will be returned:
+> Due to system maintenance, all APIs will be unavailable from 8:00 AM to 9:00 AM JST on March 18, 2024. During the maintenance, the following response with HTTP status 503 will be returned:
 > ```json
 > {"error":{"type":"UNDER_MAINTENANCE","message":"The service is under maintenance. Please try again later.","retriable":true}}
 > ```
