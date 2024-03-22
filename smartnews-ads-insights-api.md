@@ -248,7 +248,7 @@ Providing any of the below unsupported parameters doesn't result in a bad reques
 ```
 
 ### Account insights
-Account insights return insights data separately for AMv1 and AMv2. As a general rule, the data array for AMv1 is placed first, but if there are no available insights data for AMv1, AMv2 data may be returned first.
+Account insights returns insights data separately for AMv1 and AMv2. As a general rule, the insights data for AMv1 is placed first, but if there are no available insights data for AMv1, AMv2 data may be returned first.
 Additionally, in account insights, properties in `amV2` are all null. Please note that whether the `amV2` object itself is null or not indicates that it is data from AMv2.
 
 Account insights response example
