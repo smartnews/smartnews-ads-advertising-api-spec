@@ -247,6 +247,128 @@ Providing any of the below unsupported parameters doesn't result in a bad reques
 }
 ```
 
+### Account insights
+Account insights returns insights data separately for AMv1 and AMv2. As a general rule, the insights data for AMv1 is placed first, but if there are no available insights data for AMv1, AMv2 data may be returned first.
+Additionally, in account insights, properties in `amV2` are all null. Please note that whether the `amV2` object itself is null or not indicates that it is data from AMv2.
+
+Account insights response example
+```json
+{
+  "meta": {
+    "updatedAt": "2024-03-18T09:00:00Z"
+  },
+  "data": [
+    {
+      "accountId": "10000000",
+      "accountName": "Advertiser Name",
+      "campaignId": null,
+      "campaignName": null,
+      "creativeId": null,
+      "creativeName": null,
+      "conversionOptimizationPoint": null,
+      "breakdowns": null,
+      "impressions": 3075,
+      "viewableImpressions": 534,
+      "clicks": 353,
+      "conversions": 98,
+      "spend": 6.0,
+      "cpm": 11.235955056179774,
+      "cpc": 0.0169971671388102,
+      "ctr": 11.479674796747968,
+      "vctr": 66.10486891385767,
+      "cvr": 27.762039660056658,
+      "cpa": 0.061224489795918366,
+      "videoP25Views": null,
+      "videoP50Views": null,
+      "videoP75Views": null,
+      "videoP95Views": null,
+      "videoP100Views": null,
+      "videoLength": null,
+      "videoViews": null,
+      "videoViewableViews": null,
+      "videoCompleteViews": null,
+      "videoCompleteViewRate": null,
+      "videoAvgViewTime": null,
+      "videoAvgViewRate": null,
+      "skAdNetworkConversions": null,
+      "addToCart": null,
+      "purchase": null,
+      "subscribe": null,
+      "completeRegistration": null,
+      "viewContent": null,
+      "addToCartCpa": null,
+      "addToCartCvr": null,
+      "purchaseCpa": null,
+      "purchaseCvr": null,
+      "subscribeCpa": null,
+      "subscribeCvr": null,
+      "completeRegistrationCpa": null,
+      "completeRegistrationCvr": null,
+      "viewContentCpa": null,
+      "viewContentCvr": null,
+      "insights": null,
+      "amV2": null
+    },
+    {
+      "accountId": "10000000",
+      "accountName": null,
+      "campaignId": null,
+      "campaignName": null,
+      "creativeId": null,
+      "creativeName": null,
+      "conversionOptimizationPoint": null,
+      "breakdowns": null,
+      "impressions": 0,
+      "viewableImpressions": 63,
+      "clicks": 1,
+      "conversions": 0,
+      "spend": 104.160708,
+      "cpm": 1653.344571428571,
+      "cpc": 104.160708,
+      "ctr": 0.0,
+      "vctr": 0.01587301587301587,
+      "cvr": 0.0,
+      "cpa": 0.0,
+      "videoP25Views": null,
+      "videoP50Views": null,
+      "videoP75Views": null,
+      "videoP95Views": null,
+      "videoP100Views": null,
+      "videoLength": null,
+      "videoViews": null,
+      "videoViewableViews": null,
+      "videoCompleteViews": null,
+      "videoCompleteViewRate": null,
+      "videoAvgViewTime": null,
+      "videoAvgViewRate": null,
+      "skAdNetworkConversions": null,
+      "addToCart": null,
+      "purchase": null,
+      "subscribe": null,
+      "completeRegistration": null,
+      "viewContent": null,
+      "addToCartCpa": null,
+      "addToCartCvr": null,
+      "purchaseCpa": null,
+      "purchaseCvr": null,
+      "subscribeCpa": null,
+      "subscribeCvr": null,
+      "completeRegistrationCpa": null,
+      "completeRegistrationCvr": null,
+      "viewContentCpa": null,
+      "viewContentCvr": null,
+      "insights": null,
+      "amV2": {
+        "campaignId": null,
+        "campaignName": null,
+        "adGroupId": null,
+        "adGroupName": null
+      }
+    }
+  ]
+}
+```
+
 # Appendix
 
 ## Reference
