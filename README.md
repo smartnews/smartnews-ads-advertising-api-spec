@@ -38,15 +38,32 @@ To help you easily identify AMv2 data:
 
 
 ## Release Schedule
-All scheduled releases were completed on 2024-04-24.
+All scheduled releases were completed on 2024-08-01.
 
 ### Released items
-1. `amV2` field is added to responses for insights API endpoints.
-1. [`GET /api/v1.0/creatives/{creativeId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
-1. [`GET /api/v1.0/campaigns/{campaignId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
-1. [`GET /api/v1.0/accounts/{accountId}/insights`](./smartnews-ads-insights-api.md#Endpoints)
-1. [`GET /api/v1.0/campaigns/{campaignId}`](./smartnews-ads-management-api.md#get-v10campaignscampaignid) and [`GET /api/v1.0/accounts/{accountId}/campaigns`](./smartnews-ads-management-api.md#get-v10accountsaccountidcampaigns)
-1. [`GET /api/v1.0/creatives/{creativeId}`](./smartnews-ads-management-api.md#get-v10creativescreativeid) and [`GET /api/v1.0/campaigns/{campaignId}/creatives`](./smartnews-ads-management-api.md#get-v10campaignscampaignidcreatives)
+New properties are added to the `amV2` field for insights API endpoints:
+- addToCart, addToCartCpa, addToCartCvr
+- purchase, purchaseCpa, purchaseCvr
+- subscribe, subscribeCpa, subscribeCvr
+- completeRegistration, completeRegistrationCpa, completeRegistrationCvr
+- viewContent, viewContentCpa, viewContentCvr
+- initiateCheckout, initiateCheckoutCpa, initiateCheckoutCvr
+- submitForm, submitFormCpa, submitFormCvr
+- contact, contactCpa, contactCvr
+- signUp, signUpCpa, signUpCvr
+- addPaymentInfo, addPaymentInfoCpa, addPaymentInfoCvr
+- addToWishList, addToWishListCpa, addToWishListCvr
+- visitCart, visitCartCpa, visitCartCvr
+- customizeProduct, customizeProductCpa, customizeProductCvr
+- search, searchCpa, searchCvr
+- booking, bookingCpa, bookingCvr
+- download, downloadCpa, downloadCvr
+- startTrial, startTrialCpa, startTrialCvr
+- share, shareCpa, shareCvr
+- login, loginCpa, loginCvr
+- donate, donateCpa, donateCvr
+- findLocation, findLocationCpa, findLocationCvr
+- timeSpent, timeSpentCpa, timeSpentCvr
 
 # Contact
  [https://smartnews-ads.zendesk.com/hc/ja/requests/new?ticket_form_id=1900000456167](https://smartnews-ads.zendesk.com/hc/ja/requests/new?ticket_form_id=1900000456167)
