@@ -167,21 +167,104 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 
 ### `amV2` object
 
-| Name             | Type    | Format | Description                                                                  |
-|------------------|---------|--------|------------------------------------------------------------------------------|
-| campaignId       | string  |        | The identifier of the 3L campaign                                            |
-| adGroupId        | string  |        | The identifier of the 3L ad group                                            |
-| campaignName     | string  |        | The name of the 3L campaign                                                  |
-| adGroupName      | string  |        | The name of the 3L ad group                                                  |
-| isMigratedFromV1 | boolean |        | The flag to indicate if the ad object is migrated from Ads Manager V1 (AMv1) |
+| Name                    | Type    | Format | Description                                                                                  |
+|-------------------------|---------|--------|----------------------------------------------------------------------------------------------|
+| campaignId              | string  |        | The identifier of the 3L campaign                                                            |
+| adGroupId               | string  |        | The identifier of the 3L ad group                                                            |
+| campaignName            | string  |        | The name of the 3L campaign                                                                  |
+| adGroupName             | string  |        | The name of the 3L ad group                                                                  |
+| isMigratedFromV1        | boolean |        | The flag to indicate if the ad object is migrated from Ads Manager V1 (AMv1)                 |
+| addToCart               | number  | int    | The number of addToCart conversions taken on your ad.                                        |
+| addToCartCpa            | number  | float  | The cost you've paid divided by the number of addToCart conversions.                         |
+| addToCartCvr            | number  | float  | The number of addToCart conversions you received divided by the number of clicks.            |
+| purchase                | number  | int    | The number of purchase conversions taken on your ad.                                         |
+| purchaseCpa             | number  | float  | The cost you've paid divided by the number of purchase conversions.                          |
+| purchaseCvr             | number  | float  | The number of purchase conversions you received divided by the number of clicks.             |
+| subscribe               | number  | int    | The number of subscribe conversions taken on your ad.                                        |
+| subscribeCpa            | number  | float  | The cost you've paid divided by the number of subscribe conversions.                         |
+| subscribeCvr            | number  | float  | The number of subscribe conversions you received divided by the number of clicks.            |
+| completeRegistration    | number  | int    | The number of completeRegistration conversions taken on your ad.                             |
+| completeRegistrationCpa | number  | float  | The cost you've paid divided by the number of completeRegistration conversions.              |
+| completeRegistrationCvr | number  | float  | The number of completeRegistration conversions you received divided by the number of clicks. |
+| viewContent             | number  | int    | The number of viewContent conversions taken on your ad.                                      |
+| viewContentCpa          | number  | float  | The cost you've paid divided by the number of viewContent conversions.                       |
+| viewContentCvr          | number  | float  | The number of viewContent conversions you received divided by the number of clicks.          |
+| initiateCheckout        | number  | int    | The number of initiateCheckout conversions taken on your ad.                                 |
+| initiateCheckoutCpa     | number  | float  | The cost you've paid divided by the number of initiateCheckout conversions.                  |
+| initiateCheckoutCvr     | number  | float  | The number of initiateCheckout conversions you received divided by the number of clicks.     |
+| submitForm              | number  | int    | The number of submitForm conversions taken on your ad.                                       |
+| submitFormCpa           | number  | float  | The cost you've paid divided by the number of submitForm conversions.                        |
+| submitFormCvr           | number  | float  | The number of submitForm conversions you received divided by the number of clicks.           |
+| contact                 | number  | int    | The number of contact conversions taken on your ad.                                          |
+| contactCpa              | number  | float  | The cost you've paid divided by the number of contact conversions.                           |
+| contactCvr              | number  | float  | The number of contact conversions you received divided by the number of clicks.              |
+| signUp                  | number  | int    | The number of signUp conversions taken on your ad.                                           |
+| signUpCpa               | number  | float  | The cost you've paid divided by the number of signUp conversions.                            |
+| signUpCvr               | number  | float  | The number of signUp conversions you received divided by the number of clicks.               |
+| addPaymentInfo          | number  | int    | The number of addPaymentInfo conversions taken on your ad.                                   |
+| addPaymentInfoCpa       | number  | float  | The cost you've paid divided by the number of addPaymentInfo conversions.                    |
+| addPaymentInfoCvr       | number  | float  | The number of addPaymentInfo conversions you received divided by the number of clicks.       |
+| addToWishList           | number  | int    | The number of addToWishList conversions taken on your ad.                                    |
+| addToWishListCpa        | number  | float  | The cost you've paid divided by the number of addToWishList conversions.                     |
+| addToWishListCvr        | number  | float  | The number of addToWishList conversions you received divided by the number of clicks.        |
+| visitCart               | number  | int    | The number of visitCart conversions taken on your ad.                                        |
+| visitCartCpa            | number  | float  | The cost you've paid divided by the number of visitCart conversions.                         |
+| visitCartCvr            | number  | float  | The number of visitCart conversions you received divided by the number of clicks.            |
+| customizeProduct        | number  | int    | The number of customizeProduct conversions taken on your ad.                                 |
+| customizeProductCpa     | number  | float  | The cost you've paid divided by the number of customizeProduct conversions.                  |
+| customizeProductCvr     | number  | float  | The number of customizeProduct conversions you received divided by the number of clicks.     |
+| search                  | number  | int    | The number of search conversions taken on your ad.                                           |
+| searchCpa               | number  | float  | The cost you've paid divided by the number of search conversions.                            |
+| searchCvr               | number  | float  | The number of search conversions you received divided by the number of clicks.               |
+| booking                 | number  | int    | The number of booking conversions taken on your ad.                                          |
+| bookingCpa              | number  | float  | The cost you've paid divided by the number of booking conversions.                           |
+| bookingCvr              | number  | float  | The number of booking conversions you received divided by the number of clicks.              |
+| download                | number  | int    | The number of download conversions taken on your ad.                                         |
+| downloadCpa             | number  | float  | The cost you've paid divided by the number of download conversions.                          |
+| downloadCvr             | number  | float  | The number of download conversions you received divided by the number of clicks.             |
+| startTrial              | number  | int    | The number of startTrial conversions taken on your ad.                                       |
+| startTrialCpa           | number  | float  | The cost you've paid divided by the number of startTrial conversions.                        |
+| startTrialCvr           | number  | float  | The number of startTrial conversions you received divided by the number of clicks.           |
+| share                   | number  | int    | The number of share conversions taken on your ad.                                            |
+| shareCpa                | number  | float  | The cost you've paid divided by the number of share conversions.                             |
+| shareCvr                | number  | float  | The number of share conversions you received divided by the number of clicks.                |
+| login                   | number  | int    | The number of login conversions taken on your ad.                                            |
+| loginCpa                | number  | float  | The cost you've paid divided by the number of login conversions.                             |
+| loginCvr                | number  | float  | The number of login conversions you received divided by the number of clicks.                |
+| donate                  | number  | int    | The number of donate conversions taken on your ad.                                           |
+| donateCpa               | number  | float  | The cost you've paid divided by the number of donate conversions.                            |
+| donateCvr               | number  | float  | The number of donate conversions you received divided by the number of clicks.               |
+| findLocation            | number  | int    | The number of findLocation conversions taken on your ad.                                     |
+| findLocationCpa         | number  | float  | The cost you've paid divided by the number of findLocation conversions.                      |
+| findLocationCvr         | number  | float  | The number of findLocation conversions you received by the number of clicks.                 |
+| timeSpent               | number  | int    | The number of timeSpent conversions taken on your ad.                                        |
+| timeSpentCpa            | number  | float  | The cost you've paid divided by the number of timeSpent conversions.                         |
+| timeSpentCvr            | number  | float  | The number of timeSpent conversions you received by the number of clicks.                    |
 
 ### Special note for `amV2` insights metrics
 All metrics relating to conversion:
-- viewContent, viewContentCpa, viewContentCvr
 - addToCart, addToCartCpa, addToCartCvr
 - purchase, purchaseCpa, purchaseCvr
 - subscribe, subscribeCpa, subscribeCvr
 - completeRegistration, completeRegistrationCpa, completeRegistrationCvr
+- viewContent, viewContentCpa, viewContentCvr
+- initiateCheckout, initiateCheckoutCpa, initiateCheckoutCvr
+- submitForm, submitFormCpa, submitFormCvr
+- contact, contactCpa, contactCvr
+- signUp, signUpCpa, signUpCvr
+- addPaymentInfo, addPaymentInfoCpa, addPaymentInfoCvr
+- addToWishList, addToWishListCpa, addToWishListCvr
+- visitCart, visitCartCpa, visitCartCvr
+- customizeProduct, customizeProductCpa, customizeProductCvr
+- search, searchCpa, searchCvr
+- booking, bookingCpa, bookingCvr
+- download, downloadCpa, downloadCvr
+- startTrial, startTrialCpa, startTrialCvr
+- share, shareCpa, shareCvr
+- login, loginCpa, loginCvr
+- donate, donateCpa, donateCvr
+- findLocation, findLocationCpa, findLocationCvr
+- timeSpent, timeSpentCpa, timeSpentCvr
 
 are based on `click-through` attribution. `view-through` attribution is only supported on the UI and not available in the API.
 
@@ -357,11 +440,11 @@ Account insights response example
       "videoAvgViewTime": null,
       "videoAvgViewRate": null,
       "skAdNetworkConversions": null,
-      "addToCart": null,
-      "purchase": null,
-      "subscribe": null,
-      "completeRegistration": null,
-      "viewContent": null,
+      "addToCart": 0,
+      "purchase": 0,
+      "subscribe": 0,
+      "completeRegistration": 0,
+      "viewContent": 0,
       "addToCartCpa": null,
       "addToCartCvr": null,
       "purchaseCpa": null,
@@ -378,7 +461,73 @@ Account insights response example
         "campaignName": null,
         "adGroupId": null,
         "adGroupName": null,
-        "isMigratedFromV1": null
+        "isMigratedFromV1": null,
+        "addToCart": 0,
+        "addToCartCpa": null,
+        "addToCartCvr": null,
+        "purchase": 0,
+        "purchaseCpa": null,
+        "purchaseCvr": null,
+        "subscribe": 0,
+        "subscribeCpa": null,
+        "subscribeCvr": null,
+        "completeRegistration": 0,
+        "completeRegistrationCpa": null,
+        "completeRegistrationCvr": null,
+        "viewContent": 0,
+        "viewContentCpa": null,
+        "viewContentCvr": null,
+        "initiateCheckout": 0,
+        "initiateCheckoutCpa": null,
+        "initiateCheckoutCvr": null,
+        "submitForm": 0,
+        "submitFormCpa": null,
+        "submitFormCvr": null,
+        "contact": 0,
+        "contactCpa": null,
+        "contactCvr": null,
+        "signUp": 0,
+        "signUpCpa": null,
+        "signUpCvr": null,
+        "addPaymentInfo": 0,
+        "addPaymentInfoCpa": null,
+        "addPaymentInfoCvr": null,
+        "addToWishList": 0,
+        "addToWishListCpa": null,
+        "addToWishListCvr": null,
+        "visitCart": 0,
+        "visitCartCpa": null,
+        "visitCartCvr": null,
+        "customizeProduct": 0,
+        "customizeProductCpa": null,
+        "customizeProductCvr": null,
+        "search": 0,
+        "searchCpa": null,
+        "searchCvr": null,
+        "booking": 0,
+        "bookingCpa": null,
+        "bookingCvr": null,
+        "download": 0,
+        "downloadCpa": null,
+        "downloadCvr": null,
+        "startTrial": 0,
+        "startTrialCpa": null,
+        "startTrialCvr": null,
+        "share": 0,
+        "shareCpa": null,
+        "shareCvr": null,
+        "login": 0,
+        "loginCpa": null,
+        "loginCvr": null,
+        "donate": 0,
+        "donateCpa": null,
+        "donateCvr": null,
+        "findLocation": 0,
+        "findLocationCpa": null,
+        "findLocationCvr": null,
+        "timeSpent": 0,
+        "timeSpentCpa": null,
+        "timeSpentCvr": null
       }
     }
   ]
