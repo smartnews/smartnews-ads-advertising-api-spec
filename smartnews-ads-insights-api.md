@@ -1,4 +1,4 @@
-# SmartNews Ads Insights API - (apidoc v0.2 20230301)
+# SmartNews Ads Insights API
 
 We provide a family of methods for retrieving statistics on the performance of your campaigns.
 
@@ -158,7 +158,7 @@ These metrics are supported by future version.
 | frequency       | number           | float        | The average number of times your ad was served to each person. |
 | reach           | number           | int          | The number of people your ad was served to. |
 
-# AMv2 support (Scheduled to release at TBD)
+# AMv2 support
 
 > Please be familiarized with the [general information of Ads Manager V2 support](./README.md#ads-manager-v2-amv2-support) first.
 
