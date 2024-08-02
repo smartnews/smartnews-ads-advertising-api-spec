@@ -37,7 +37,7 @@ To help you easily identify AMv2 data:
 - The structure and location of the `amV2` object may vary depending on the endpoint. To understand exactly where to find the `amV2` object for each specific endpoint, please refer to the detailed API documentation.
 
 
-## Release Schedule
+## Latest Release
 All scheduled releases were completed on 2024-08-01.
 
 ### Released items
