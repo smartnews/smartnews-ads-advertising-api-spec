@@ -240,6 +240,9 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 | timeSpent               | number  | int    | The number of timeSpent conversions taken on your ad.                                        |
 | timeSpentCpa            | number  | float  | The cost you've paid divided by the number of timeSpent conversions.                         |
 | timeSpentCvr            | number  | float  | The number of timeSpent conversions you received by the number of clicks.                    |
+| install                 | number  | int    | The number of install conversions taken on your ad.                                          |
+| installCpa              | number  | float  | The cost you've paid divided by the number of install conversions.                           |
+| installCvr              | number  | float  | The number of install conversions you received by the number of clicks.                      |
 
 ### Special note for `amV2` insights metrics
 All metrics relating to conversion:
@@ -267,6 +270,10 @@ All metrics relating to conversion:
 - timeSpent, timeSpentCpa, timeSpentCvr
 
 are based on `click-through` attribution. `view-through` attribution is only supported on the UI and not available in the API.
+
+- install, installCpa, installCvr
+
+is based on `click-through` attribution and the mobile app attribution. It only counts app campaigns' conversions attributed by a Mobile Measurement Partner.
 
 ## Unsupported parameters and response fields of AMv2 Data
 Because of the difference in the product specification of AMv1 and AMv2, the following request parameters and response fields will not available for AMv2 Data.
@@ -527,7 +534,10 @@ Account insights response example
         "findLocationCvr": null,
         "timeSpent": 0,
         "timeSpentCpa": null,
-        "timeSpentCvr": null
+        "timeSpentCvr": null,
+        "install": 0,
+        "installCpa": null,
+        "installCvr": null
       }
     }
   ]
