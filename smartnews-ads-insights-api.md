@@ -243,6 +243,9 @@ For users to distinguish AMv2 data from AMv1 data, the `amV2` object is added to
 | install                 | number  | int    | The number of install conversions taken on your ad.                                          |
 | installCpa              | number  | float  | The cost you've paid divided by the number of install conversions.                           |
 | installCvr              | number  | float  | The number of install conversions you received by the number of clicks.                      |
+| d1Retention             | number  | int    | The number of d1Retention conversions taken on your ad.                                      |
+| d1RetentionCpa          | number  | float  | The cost you've paid divided by the number of d1Retention conversions.                       |
+| d1RetentionCvr          | number  | float  | The number of d1Retention conversions you received by the number of clicks.                  |
 
 ### Special note for `amV2` insights metrics
 All metrics relating to conversion:
@@ -271,7 +274,8 @@ All metrics relating to conversion:
 
 are based on `click-through` attribution. `view-through` attribution is only supported on the UI and not available in the API.
 
-- install, installCpa, installCvr
+- install, installCpa, installCvr 
+- d1Retention, d1RetentionCpa, d1RetentionCvr
 
 is based on `click-through` attribution and the mobile app attribution. It only counts app campaigns' conversions attributed by a Mobile Measurement Partner.
 
@@ -537,7 +541,10 @@ Account insights response example
         "timeSpentCvr": null,
         "install": 0,
         "installCpa": null,
-        "installCvr": null
+        "installCvr": null,
+        "d1Retention": 0,
+        "d1RetentionCpa": null,
+        "d1RetentionCvr": null
       }
     }
   ]

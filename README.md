@@ -38,7 +38,7 @@ To help you easily identify AMv2 data:
 
 
 ## Latest Release
-All scheduled releases were completed on 2024-08-20.
+All scheduled releases were completed on 2024-10-30.
 
 ### Released items
 New properties were added to the `amV2` field for Insights API endpoints on 2024-08-01:
@@ -64,8 +64,10 @@ New properties were added to the `amV2` field for Insights API endpoints on 2024
 - donate, donateCpa, donateCvr
 - findLocation, findLocationCpa, findLocationCvr
 - timeSpent, timeSpentCpa, timeSpentCvr
-The following were added on 2024-08-20:
+Fields were added on 2024-08-20:
 - install, installCpa, installCvr
+Fields wer added on 2024-10-30:
+- d1Retention, d1RetentionCpa, d1RetentionCvr
 
 # Contact
  [https://smartnews-ads.zendesk.com/hc/ja/requests/new?ticket_form_id=1900000456167](https://smartnews-ads.zendesk.com/hc/ja/requests/new?ticket_form_id=1900000456167)
