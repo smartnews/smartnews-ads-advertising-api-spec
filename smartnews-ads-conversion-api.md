@@ -12,7 +12,7 @@ This document provides the technical information of  the Conversion API used to 
 Before integrating ConversionAPI, the advertisers need reach out to Smartnews Ads Sales team, who will work with the engineering team in preparing the following assets which will be used in ConversionAPI request
 * Partner name
 * Authentication token
-    * Important : While using GET requests, the auth token is not strictly enforced; however, we highly recommend including the token to enhance security.
+  * Important : While using GET requests, the auth token is not strictly enforced; however, we highly recommend including the token to enhance security.
 
 ## ConversionAPI Usage
 ### ConversionAPI URL
@@ -275,3 +275,71 @@ Content-Type: application/json
 | Purchase History       | PurchaseHistory                          |
 | Like                   | Like                                     |
 | Install                | Install                                  |
+
+
+## [New] Batch Request
+The Batch Request feature allows advertisers to submit multiple conversions in a single request. All other supported parameters remain the same as described above. Note that only the POST method is supported for batch requests.
+
+### Conversion URL
+Production Endpoint: https://log.smartnews-ads.com/conversion_api/conversions/{api_version}/{partner_name}
+
+Staging Endpoint (test only) https://stg-log.smartnews-ads.com/conversion_api/conversions/{api_version}/{partner_name}
+
+### Example of batch request
+```sh
+curl --request POST 'https://log.smartnews-ads.com/conversion_api/conversions/v1/smartnews' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: {authorization token issued by SN}' \
+--data-raw '{
+  "data": [
+    {
+      "action_source": "app",
+      "event_name": "Purchase",
+      "store_id": "jp.gocro.smartnews.android",
+      "mobile_platform": "Android",
+      "click_id": "UnoPeo4IDmEwnHepAAEA",
+      "event_time": 1473668802,
+      "properties": {
+        "item_id": "akashiro:10003938",
+        "shop_id": "akashiro",
+        "event_value": 100.1,
+        "currency": "JPY",
+        "quantity": 2
+      }
+    },
+    {
+      "action_source": "app",
+      "event_name": "AddToCart",
+      "store_id": "jp.gocro.smartnews.android",
+      "mobile_platform": "Android",
+      "click_id": "UnoPeo4IDmEwnHepAAEA",
+      "event_time": 1473667802,
+      "properties": {
+        "item_id": "akashiro:10003938",
+        "shop_id": "akashiro",
+        "event_value": 100.1,
+        "currency": "JPY",
+        "quantity": 2
+      }
+    },
+    {
+      "action_source": "app",
+      "event_name": "AddToCart",
+      "store_id": "579581125",
+      "mobile_platform": "iOS",
+      "click_id": "UnoFcd4UxewnHepAAEA",
+      "event_time": 1473667802,
+      "properties": {
+        "item_id": "akashiro:10003939",
+        "shop_id": "akashiro",
+        "event_value": 100.1,
+        "currency": "JPY",
+        "quantity": 2
+      }
+    }
+  ]
+}'
+```
+- You can send up to 1,000 conversion events in the data field. However, for optimal performance, it’s recommended to send events as soon as they occur, ideally within one hour of the event.
+- Important: If any invalid events are included in the batch, the entire batch will be rejected.
+- Note: A batch request may respond with a 200 OK status, even if there is an internal error within the batch.
