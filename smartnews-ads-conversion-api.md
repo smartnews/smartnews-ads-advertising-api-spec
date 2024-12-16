@@ -181,6 +181,7 @@ curl --request GET 'https://log.smartnews-ads.com/conversion_api/v1/smartnews?ac
 
 ### Example Response
 
+**Success**
 ```http
 HTTPS/1.1 200 OK
 Content-Type: application/json
@@ -190,9 +191,9 @@ Content-Type: application/json
 }
 ```
 
-Response when there is error:
+**Error**
 
-Case 1: field missing
+**Case 1**: field missing
 
 ```http
 HTTPS/1.1 400 Bad Request
@@ -207,7 +208,7 @@ Content-Type: application/json
 }
 ```
 
-Case 2: invalid argument (such as unit_price is not a number)
+**Case 2**: invalid argument (such as unit_price is not a number)
 
 ```http
 HTTPS/1.1 400 Bad Request
@@ -222,7 +223,7 @@ Content-Type: application/json
 }
 ```
 
-Case 3: internal server error
+**Case 3**: internal server error
 
 ```http
 HTTPS/1.1 500 Internal Server Error
@@ -277,7 +278,7 @@ Content-Type: application/json
 | Install                | Install                                  |
 
 
-## [New] Batch Request
+## Batch Request [New since 2024/12/16]
 The Batch Request feature allows advertisers to submit multiple conversions in a single request. All other supported parameters remain the same as described above. Note that only the POST method is supported for batch requests.
 
 ### Conversion URL
@@ -340,6 +341,71 @@ curl --request POST 'https://log.smartnews-ads.com/conversion_api/conversions/v1
   ]
 }'
 ```
+
+## Response
+| Field      | Value type | Description                                                                                     |
+|------------|------------|-------------------------------------------------------------------------------------------------|
+| message    | String     | Indicate whether the request is successful or not, and what type of error happens               |
+| request_id | String     | The unique id of the request                                                                    |
+| error      | Object     | Optional“issue”: indicate what kind of error happens “detail”: the detailed reason of the error |
+
+
+### Example Response
+**Success**
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/json
+{
+    "message": "OK",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8"
+}
+```
+
+**Error**
+
+If there are multiple invalid events in the batch, the response will only include one error which is picked randomly.
+
+**Case 1**: field missing
+
+```http
+HTTPS/1.1 400 Bad Request
+Content-Type: application/json
+{
+    "message": "Bad Request",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8",
+    "error": {
+        "issue": "Input field missing",
+        "detail": "The click_id field is required"
+    }
+}
+```
+
+**Case 2**: invalid argument (such as unit_price is not a number)
+
+```http
+HTTPS/1.1 400 Bad Request
+Content-Type: application/json
+{
+    "message": "Bad Request",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8",
+    "error": {
+        "issue": "Invalid input provided",
+        "detail": "The ‘unit_price’' field data type is incorrect"
+    }
+}
+```
+
+**Case 3**: internal server error
+
+```http
+HTTPS/1.1 500 Internal Server Error
+Content-Type: application/json
+{
+    "message": "Internal Server Error",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8"
+}
+```
+
+
 - You can send up to 1,000 conversion events in the data field. However, for optimal performance, it’s recommended to send events as soon as they occur, ideally within one hour of the event.
 - Important: If any invalid events are included in the batch, the entire batch will be rejected.
-- Note: A batch request may respond with a 200 OK status, even if there is an internal error within the batch.
