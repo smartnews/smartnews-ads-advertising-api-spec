@@ -12,7 +12,7 @@ This document provides the technical information of  the Conversion API used to 
 Before integrating ConversionAPI, the advertisers need reach out to Smartnews Ads Sales team, who will work with the engineering team in preparing the following assets which will be used in ConversionAPI request
 * Partner name
 * Authentication token
-    * Important : While using GET requests, the auth token is not strictly enforced; however, we highly recommend including the token to enhance security.
+  * Important : While using GET requests, the auth token is not strictly enforced; however, we highly recommend including the token to enhance security.
 
 ## ConversionAPI Usage
 ### ConversionAPI URL
@@ -181,6 +181,7 @@ curl --request GET 'https://log.smartnews-ads.com/conversion_api/v1/smartnews?ac
 
 ### Example Response
 
+**Success**
 ```http
 HTTPS/1.1 200 OK
 Content-Type: application/json
@@ -190,9 +191,9 @@ Content-Type: application/json
 }
 ```
 
-Response when there is error:
+**Error**
 
-Case 1: field missing
+**Case 1**: field missing
 
 ```http
 HTTPS/1.1 400 Bad Request
@@ -207,7 +208,7 @@ Content-Type: application/json
 }
 ```
 
-Case 2: invalid argument (such as unit_price is not a number)
+**Case 2**: invalid argument (such as unit_price is not a number)
 
 ```http
 HTTPS/1.1 400 Bad Request
@@ -222,7 +223,7 @@ Content-Type: application/json
 }
 ```
 
-Case 3: internal server error
+**Case 3**: internal server error
 
 ```http
 HTTPS/1.1 500 Internal Server Error
@@ -275,3 +276,136 @@ Content-Type: application/json
 | Purchase History       | PurchaseHistory                          |
 | Like                   | Like                                     |
 | Install                | Install                                  |
+
+
+## Batch Request [New since 2024/12/16]
+The Batch Request feature allows advertisers to submit multiple conversions in a single request. All other supported parameters remain the same as described above. Note that only the POST method is supported for batch requests.
+
+### Conversion URL
+Production Endpoint: https://log.smartnews-ads.com/conversion_api/conversions/{api_version}/{partner_name}
+
+Staging Endpoint (test only) https://stg-log.smartnews-ads.com/conversion_api/conversions/{api_version}/{partner_name}
+
+### Example of batch request
+```sh
+curl --request POST 'https://log.smartnews-ads.com/conversion_api/conversions/v1/smartnews' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: {authorization token issued by SN}' \
+--data-raw '{
+  "data": [
+    {
+      "action_source": "app",
+      "event_name": "Purchase",
+      "store_id": "jp.gocro.smartnews.android",
+      "mobile_platform": "Android",
+      "click_id": "UnoPeo4IDmEwnHepAAEA",
+      "event_time": 1473668802,
+      "properties": {
+        "item_id": "akashiro:10003938",
+        "shop_id": "akashiro",
+        "event_value": 100.1,
+        "currency": "JPY",
+        "quantity": 2
+      }
+    },
+    {
+      "action_source": "app",
+      "event_name": "AddToCart",
+      "store_id": "jp.gocro.smartnews.android",
+      "mobile_platform": "Android",
+      "click_id": "UnoPeo4IDmEwnHepAAEA",
+      "event_time": 1473667802,
+      "properties": {
+        "item_id": "akashiro:10003938",
+        "shop_id": "akashiro",
+        "event_value": 100.1,
+        "currency": "JPY",
+        "quantity": 2
+      }
+    },
+    {
+      "action_source": "app",
+      "event_name": "AddToCart",
+      "store_id": "579581125",
+      "mobile_platform": "iOS",
+      "click_id": "UnoFcd4UxewnHepAAEA",
+      "event_time": 1473667802,
+      "properties": {
+        "item_id": "akashiro:10003939",
+        "shop_id": "akashiro",
+        "event_value": 100.1,
+        "currency": "JPY",
+        "quantity": 2
+      }
+    }
+  ]
+}'
+```
+
+## Response
+| Field      | Value type | Description                                                                                     |
+|------------|------------|-------------------------------------------------------------------------------------------------|
+| message    | String     | Indicate whether the request is successful or not, and what type of error happens               |
+| request_id | String     | The unique id of the request                                                                    |
+| error      | Object     | Optional“issue”: indicate what kind of error happens “detail”: the detailed reason of the error |
+
+
+### Example Response
+**Success**
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/json
+{
+    "message": "OK",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8"
+}
+```
+
+**Error**
+
+If there are multiple invalid events in the batch, the response will only include one error which is picked randomly.
+
+**Case 1**: field missing
+
+```http
+HTTPS/1.1 400 Bad Request
+Content-Type: application/json
+{
+    "message": "Bad Request",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8",
+    "error": {
+        "issue": "Input field missing",
+        "detail": "The click_id field is required"
+    }
+}
+```
+
+**Case 2**: invalid argument (such as unit_price is not a number)
+
+```http
+HTTPS/1.1 400 Bad Request
+Content-Type: application/json
+{
+    "message": "Bad Request",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8",
+    "error": {
+        "issue": "Invalid input provided",
+        "detail": "The ‘unit_price’' field data type is incorrect"
+    }
+}
+```
+
+**Case 3**: internal server error
+
+```http
+HTTPS/1.1 500 Internal Server Error
+Content-Type: application/json
+{
+    "message": "Internal Server Error",
+    "request_id": "a326f711-1566-4002-9729-2846ae5107c8"
+}
+```
+
+
+- You can send up to 1,000 conversion events in the data field. However, for optimal performance, it’s recommended to send events as soon as they occur, ideally within one hour of the event.
+- Important: If any invalid events are included in the batch, the entire batch will be rejected.
