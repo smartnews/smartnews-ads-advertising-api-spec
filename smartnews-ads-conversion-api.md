@@ -29,7 +29,7 @@ https://stg-log.smartnews-ads.com/conversion_api/{api_version}/{partner_name}
 
 | Parameter name | Parameter scope  | Value type | Example    | Description                     |
 |----------------|------------------|------------|------------|---------------------------------|
-| partner_name   | URL parameter    | String     | rakuten  | The name of integration side, which should represent business             |
+| partner_name   | URL parameter    | String     | 1aQ234Bc   | The name of integration side, which should represent business. Only digit and alphabet should be used  |
 | api_version    | URL parameter    | String     | v1         | API version                     |
 | Authorization  | Header parameter | String     | v130ad1213 | Token for verifying the request |
 
