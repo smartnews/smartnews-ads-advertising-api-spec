@@ -12,7 +12,7 @@ This document provides the technical information of  the Conversion API used to 
 Before integrating ConversionAPI, the advertisers need reach out to Smartnews Ads Sales team, who will work with the engineering team in preparing the following assets which will be used in ConversionAPI request
 * Partner name
 * Authentication token
-  * Important : While using GET requests, the auth token is not strictly enforced; however, we highly recommend including the token to enhance security.
+    * Important : While using GET requests, the auth token is not strictly enforced; however, we highly recommend including the token to enhance security.
 
 ## ConversionAPI Usage
 ### ConversionAPI URL
@@ -29,7 +29,7 @@ https://stg-log.smartnews-ads.com/conversion_api/{api_version}/{partner_name}
 
 | Parameter name | Parameter scope  | Value type | Example    | Description                     |
 |----------------|------------------|------------|------------|---------------------------------|
-| partner_name   | URL parameter    | String     | 1aQ234Bc   | The name of integration side, which should represent business. Only digit and alphabet should be used  |
+| partner_name   | URL parameter    | String     | 1aQ234Bc  | The name of integration side, which should represent business. Only digit and alphabet should be used  |
 | api_version    | URL parameter    | String     | v1         | API version                     |
 | Authorization  | Header parameter | String     | v130ad1213 | Token for verifying the request |
 
@@ -53,48 +53,106 @@ curl 'https://log.smartnews-ads.com/conversion_api/v1/smartnews?clickId=xxxxx’
 **Important:**  Parameters can be included as query parameters in GET requests or as body parameters in POST requests.
 
 ### Parameters For Web Conversions
-| Parameter name    | Value type         | Example                                                                                                             | Description                                                                                                                                                                                                                                                                                                                     |
-|-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| action_source     | String             | web, app, email, physical_store                                                                                     | Required The value should be “web” for web conversion                                                                                                                                                                                                                                                                           |
-| event_name        | String             | Purchase                                                                                                            | Required The conversion event name, please follow SmartNews Standard Event name.                                                                                                                                                                                                                                                |
-| event_value       | Float              | 500.0                                                                                                               | Optional Can be the unit price of the item purchased. If `event_value` is also set in properties parameter, this `event_value` will overwrite the properties parameter `event_value`                                                                                                                                            |
-| pixel_tag_id      | String             | 9112675ff25eb25f580feb82                                                                                            | Optional Either pixel_tag_id or event_source_url need to be provided The Smartnews issued pixel tag id                                                                                                                                                                                                                          |
-| event_source_url  | String             | http://www.smartnews.com?store=abc                                                                                  | Optional Either pixel_tag_id or event_source_url need to be provided  The browser URL where the event happened. The URL must begin with http:// or https:// Please encode URL using GET method                                                                                                                                  |
-| click_id          | String             | UnoPeo4IDmEwnHepAAEA                                                                                                | Optional  either click_id or client_ip_address+client_user_agent must be provided The unique identifier for an ad request so that SN can accurately attribute conversion to click In order to use click_id, the advertisement landing page need to be configured properly (please refer to guide "Send Click ID within Request") |
-| client_ip_address | String             | IPv4: 133.242.187.207 IPv6:  2001:ac8:40:12:5578:37e:193f:d5ea                                                      | Optional  either click_id or client_ip_address+client_user_agent+os_version must be provided                                                                                                                                                                                                                                    |
-| client_user_agent | String             | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 | Optional  either click_id or client_ip_address+client_user_agent+os_version must be provided                                                                                                                                                                                                                                    |
-| client_os_version | String             |                                                                                                                     | Optional  either click_id or client_ip_address+client_user_agent+os_version must be provided                                                                                                                                                                                                                                    |
-| referrer          | String             | https://example.com/page?q=123                                                                                      | Optional                                                                                                                                                                                                                                                                                                                        |
-| event_time        | Long               | 1473668802                                                                                                          | Optional The timestamp of event happens, accurate to the second                                                                                                                                                                                                                                                                 |
-| properties        | Object (Key-value) | { “Item_id”: “akashiro:10003938”, “unit_price”: 500, “currency”: “JPY”, “quantity”: 2, “shop_id”: “akashiro” }      | Optional Only support in Body Parameter Can provide extra information about the conversion, such as the purchased item’s price & quantity More descriptions of this field please refer to following section                                                                                                                     |
+| Parameter name    | Value type         | Example                                                                                                             | Description                                                                                                                                                                                                                                                                                                                      |
+|-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| action_source     | String             | web, app, email, physical_store                                                                                     | Required. The value should be “web” for web conversion                                                                                                                                                                                                                                                                           |
+| event_name        | String             | Purchase                                                                                                            | Required. The conversion event name, please follow SmartNews Standard Event name.                                                                                                                                                                                                                                                |
+| event_value       | Float              | 500.0                                                                                                               | Optional. Can be the unit price of the item purchased. If `event_value` is also set in properties parameter, this `event_value` will overwrite the properties parameter `event_value`                                                                                                                                            |
+| pixel_tag_id      | String             | 9112675ff25eb25f580feb82                                                                                            | Optional. Either pixel_tag_id or event_source_url need to be provided The Smartnews issued pixel tag id                                                                                                                                                                                                                          |
+| event_source_url  | String             | http://www.smartnews.com?store=abc                                                                                  | Optional. Either pixel_tag_id or event_source_url need to be provided  The browser URL where the event happened. The URL must begin with http:// or https:// Please encode URL using GET method                                                                                                                                  |
+| click_id          | String             | UnoPeo4IDmEwnHepAAEA                                                                                                | Optional. Either click_id or client_ip_address+client_user_agent must be provided The unique identifier for an ad request so that SN can accurately attribute conversion to click In order to use click_id, the advertisement landing page need to be configured properly (please refer to guide "Send Click ID within Request") |
+| client_ip_address | String             | IPv4: 133.242.187.207 IPv6:  2001:ac8:40:12:5578:37e:193f:d5ea                                                      | Optional. Either click_id or client_ip_address+client_user_agent+os_version must be provided                                                                                                                                                                                                                                     |
+| client_user_agent | String             | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 | Optional. Either click_id or client_ip_address+client_user_agent+os_version must be provided                                                                                                                                                                                                                                     |
+| client_os_version | String             |                                                                                                                     | Optional. Either click_id or client_ip_address+client_user_agent+os_version must be provided                                                                                                                                                                                                                                     |
+| referrer          | String             | https://example.com/page?q=123                                                                                      | Optional.                                                                                                                                                                                                                                                                                                                        |
+| event_time        | Long               | 1473668802                                                                                                          | Optional. The timestamp of event happens, accurate to the second                                                                                                                                                                                                                                                                 |
+| properties        | Object (Key-value) | { "currency": "JPY",  "value": 5000, "content_ids": ['12345', '456789'], "content_type": "product" }                | Optional. This field is accepted only in POST requests. You may include additional conversion details—such as product price and quantity. For more information about this field, please see the following section.                                                                                                               |
+
 
 ### Parameters For App Conversions
 | Parameter name    | Value type         | Example                                                                                                             | Description                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| action_source     | String             | web, app, email, physical_store                                                                                     | Required The value should be app for app conversion                                                                                                                                                                                                                                                             |
-| event_name        | String             | Install                                                                                                             | Required The conversion event name, please follow SmartNews Standard Event name.                                                                                                                                                                                                                                |
-| event_value       | Float              | 500.0                                                                                                               | Optional Can be the unit price of the item purchased. If `event_value` is also set in properties parameter, this `event_value` will overwrite the properties parameter `event_value`                                                                                                                            |
-| store_id          | String             | iOS: 579581125 Android:jp.gocro.smartnews.android                                                                   | Required iOS or Android App Store ID                                                                                                                                                                                                                                                                            |
-| mobile_platform   | String             | iOS / Android                                                                                                       | Required Mobile platform, either iOS or Android                                                                                                                                                                                                                                                                 |
-| click_id          | String             | UnoPeo4IDmEwnHepAAEA                                                                                                | Optional  either click_id or ad_id or client_ip_address+client_user_agent must be provided The unique identifier for an ad request so that SN can accurately attribute conversion to click In order to use click_id, the advertisement landing page need to be configured properly (please refer to guide "Send Click ID within Request") |
-| ad_id             | String             |                                                                                                                     | Optional  either click_id or ad_id or client_ip_address+client_user_agent must be provided IDFA on iOS system AAID on Android system                                                                                                                                                                            |
-| client_ip_address | String             | IPv4: 133.242.187.207 IPv6:  2001:ac8:40:12:5578:37e:193f:d5ea                                                      | Optional  either click_id or ad_id or client_ip_address+client_user_agent must be provided                                                                                                                                                                                                                      |
-| client_user_agent | String             | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 | Optional  either click_id or ad_id or client_ip_address+client_user_agent must be provided                                                                                                                                                                                                                      |
-| client_os_version | String             |                                                                                                                     | Optional  OS version is required when click_id or ad_id cannot be provided and mobile platform is iOS                                                                                                                                                                                                           |
-| event_time        | Long               | 1473668802                                                                                                          | Optional The timestamp of event happens, accurate to the second                                                                                                                                                                                                                                                 |
-| properties        | Object (Key-value) | { “Item_id”: “akashiro:10003938”, “unit_price”: 500, “currency”: “JPY”, “quantity”: 2, “shop_id”: “akashiro” }      | Optional Only support in Body Parameter for POST type request Can provide extra information about the conversion, such as the purchased item’s price & quantity More descriptions of this field please refer to following section                                                                               |
+| action_source     | String             | web, app, email, physical_store                                                                                     | Required. The value should be app for app conversion                                                                                                                                                                                                                                                            |
+| event_name        | String             | Install                                                                                                             | Required. The conversion event name, please follow SmartNews Standard Event name.                                                                                                                                                                                                                               |
+| event_value       | Float              | 500.0                                                                                                               | Optional. Can be the unit price of the item purchased. If `event_value` is also set in properties parameter, this `event_value` will overwrite the properties parameter `event_value`                                                                                                                           |
+| store_id          | String             | iOS: 579581125 Android:jp.gocro.smartnews.android                                                                   | Required. iOS or Android App Store ID                                                                                                                                                                                                                                                                           |
+| mobile_platform   | String             | iOS / Android                                                                                                       | Required. Mobile platform, either iOS or Android                                                                                                                                                                                                                                                                |
+| click_id          | String             | UnoPeo4IDmEwnHepAAEA                                                                                                | Optional. Either click_id or ad_id or client_ip_address+client_user_agent must be provided The unique identifier for an ad request so that SN can accurately attribute conversion to click In order to use click_id, the advertisement landing page need to be configured properly (please refer to guide "Send Click ID within Request") |
+| ad_id             | String             |                                                                                                                     | Optional. Either click_id or ad_id or client_ip_address+client_user_agent must be provided IDFA on iOS system AAID on Android system                                                                                                                                                                            |
+| client_ip_address | String             | IPv4: 133.242.187.207 IPv6:  2001:ac8:40:12:5578:37e:193f:d5ea                                                      | Optional. Either click_id or ad_id or client_ip_address+client_user_agent must be provided                                                                                                                                                                                                                      |
+| client_user_agent | String             | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 | Optional. Either click_id or ad_id or client_ip_address+client_user_agent must be provided                                                                                                                                                                                                                      |
+| client_os_version | String             |                                                                                                                     | Optional. OS version is required when click_id or ad_id cannot be provided and mobile platform is iOS                                                                                                                                                                                                           |
+| event_time        | Long               | 1473668802                                                                                                          | Optional. The timestamp of event happens, accurate to the second                                                                                                                                                                                                                                                |
+| properties        | Object (Key-value) | { "currency": "JPY",  "value": 5000, "content_ids": ['12345', '456789'], "content_type": "product" }                | Optional. This field is accepted only in POST requests. You may include additional conversion details—such as product price and quantity. For more information about this field, please see the following section.                                                                                              |
 
 
+### Supported Events and Recommended Properties
+**Special Notes for Dynamic Ads**
 
-### The supported properties parameters
-| Parameter name | Value type | Example           | Description                                          |
-|----------------|------------|-------------------|------------------------------------------------------|
-| item_id        | String     | akashiro:10003938 | Optional                                             |
-| event_value    | Float      | 500.0             | Optional Can be the unit price of the item purchased |
-| currency       | String     | JPY, USD          | Optional JPY by default if not provided              |
-| quantity       | Integer    | 2                 | Optional The number of purchased items               |
-| shop_id        | String     | akashiro          | Optional                                             |
+The four events — “ViewContent,” “AddToCart,” “Purchase,” and “Lead”—are used directly to optimize delivery (e.g., retargeting and product recommendations).
+For Dynamic Ads, always pass the appropriate parameters with each of these events. Other events can be tracked, but they are not referenced for delivery optimization.
 
+**Full List**
+
+| Event name           |  Recommended Properties                                             | Event Description                                                                                 | 
+| ---------------------| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | 
+| AddPaymentInfo       | content_ids, contents, currency, value                              | When payment information is added in the checkout flow. For example, a person clicks on a save billing information button. |  
+| AddToCart            | content_ids, content_type, contents, currency, value                | When a product is added to the shopping cart. For example, a person clicks on an add to cart button. **`content_ids` are required for Dynamic Ads** | 
+| AddToWishList        | content_ids, contents, currency, value                              | When a product is added to a wishlist. For example, a person clicks on an add to wishlist button. |  
+| Booking              |                                                                     | When a reservation or booking is made for a service (hotel, flight, event ticket, etc.).          |
+| CompleteRegistration | currency, value                                                     | When a registration form is completed. For example, a person submits a completed subscription or signup form. |  
+| Contact              |                                                                     | When a person initiates contact with your business via telephone, SMS, email, chat, etc. For example, a person submits a question about a product. |  
+| CustomizeProduct     |                                                                     | When a person customizes a product. For example, a person selects the color of a t-shirt.         |
+| Donate               |                                                                     | When a person donates funds to your organization or cause. For example, a person adds a donation to the Humane Society to their cart. |  
+| Download             |                                                                     | When a file, app, or other digital content is downloaded. For example, a person clicks a download button for a white paper. |  
+| FindLocation         |                                                                     | When a person searches for a location of your store via a website or app, with an intention to visit the physical location. For example, a person wants to find a specific product in a local store. |
+| InitiateCheckout     | content_ids, contents, currency, quantity, value                    | When a person enters the checkout flow prior to completing the checkout flow. For example, a person clicks on a checkout button. |  
+| Lead                 | currency, value                                                     | When a sign-up is completed or other signal of interest is recorded. For example, a person clicks on pricing or submits a lead form. **`content_ids` are required for Dynamic Ads** | 
+| Login                |                                                                     | When a person logs in to an existing account.                                                     |
+| Purchase             | content_ids, content_type, contents, currency, quantity, value      | When a purchase is made or checkout flow is completed. For example, a person has finished the purchase or checkout flow and lands on thank-you or confirmation page. **`content_ids`, `currency`, and `value` are required for Dynamic Ads** |  
+| Schedule             |                                                                     | When a person books an appointment to visit one of your locations. For example, a person selects a date and time for a tennis lesson. |
+| Search               | content_ids, content_type, contents, currency, search_string, value | When a search is made. For example, a person searches for a product on your website. |  
+| Share                |                                                                     | When a person shares content from your site or app via a share button or similar mechanism.       |
+| SignUp               |                                                                     | When a person signs up for an account (pre-registration) but may not yet complete full registration. |
+| StartTrial           | currency, predicted_ltv, value                                      | When a person starts a free trial of a product or service you offer. For example, a person selects a free week of your game. |  
+| SubmitApplication    |                                                                     | When a person applies for a product, service, or program you offer. For example, a person applies for a credit card, educational program, or job. |
+| SubmitForm           |                                                                     | When a person submits a form (e.g., contact form or survey) that is not covered by other events.  |
+| Subscribe            | currency, predicted_ltv, value                                      | When a person applies to start a paid subscription for a product or service you offer. For example, a person subscribes to your streaming service. | 
+| TimeSpent            |                                                                     | When the time a user spends on a page or screen is tracked and meets a threshold you define.      |
+| ViewContent          | content_ids, content_type, contents, currency, value                | A visit to a web page you care about (for example, a product page or landing page). ViewContent tells you if someone visits a web page's URL, but not what they see or do on that page. For example, a person lands on a product details page. **content_ids are reuiqred for Dynamic Ads** | 
+| VisitCart            |                                                                     | When a person views their shopping cart or basket page.                                           |
+
+
+### Additional Events that are used for App
+| Event Name             | Event Code  (Send through ConversionAPI) |
+|------------------------|------------------------------------------|
+| Level Achieve          | LevelAchieve                             |
+| Open Push Notification | OpenPushNotification                     |
+| Rate                   | Rate                                     |
+| Reengage               | Reengage                                 |
+| Invite                 | Invite                                   |
+| Tutorial Completion    | TutorialCompletion                       |
+| Launch                 | Launch                                   |
+| Purchase History       | PurchaseHistory                          |
+| Like                   | Like                                     |
+| Install                | Install                                  |
+
+
+### Supported properties 
+| Parameter name   | Value type                    | Example                                                             | Description                                              |
+| ---------------- | ----------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------|
+| content_category | String                        | electronics                                                         | Category of the page/product.                            |
+| content_ids      | Array of Integers or String   | [12345, 'A67890']                                                   | Product IDs associated with the event, such as SKUs      |
+| content_name     | String                        | special product A                                                   | Name of the page/product.                                |
+| content_type     | String                        | product or product_group                                            | Either product or product_group based on the content_ids or contents being passed. If the IDs being passed in content_ids or contents parameter are IDs of products, then the value should be product. If product group IDs are being passed, then the value should be product_group.If no content_type is provided, SmartNews will match the event to every item that has the same ID, independent of its type. |
+| contents         | Array of objects              | [{'id': 'ABC123', 'quantity': 2}, {'id': 'XYZ789', 'quantity': 2}]. | An array of JSON objects that contains the quantity and product or content identifier(s). id and quantity are the required fields. |
+| currency         | String                        | JPY                                                                 | The currency for the value specified, like JPY, USD, EUR |
+| quantity         | Integer                       | 2                                                                   | The number of items when checkout was initiated.         |
+| predicted_ltv    | Integer, float                | 12000.5                                                             | Predicted lifetime value of a subscriber as defined by the advertiser and expressed as an exact value. |
+| search_string    | String                        | wireless earbuds                                                    | Used with the Search event. The string entered by the user for the search. |
+| status           | Boolean                       | true                                                                | Used with the CompleteRegistration event. Set true when the user completes full registration, and false when the user is still in a provisional state. |
+| value            | Integer or float              | 39.99                                                               | The value of a user performing this event to the business. |
+| time_spent       | Integer                       | 10000                                                               | Milli seconds of the user spend the time in the page |
 
 
 ## Send Click ID within Request
@@ -124,11 +182,10 @@ curl --request POST 'https://log.smartnews-ads.com/conversion_api/v1/smartnews \
   "click_id": "UnoPeo4IDmEwnHepAAEA",
   "event_time": 1473668802,
   "properties": {
-    "item_id": "akashiro:10003938",
-    "shop_id": "akashiro",
-    "event_value": 100.1,
     "currency": "JPY",
-    "quantity": 2
+    "value": 5000,
+    "content_ids": ['12346'],
+    "content_type": "product"
   }
 }
 '
@@ -154,11 +211,10 @@ curl --request POST 'https://log.smartnews-ads.com/conversion_api/v1/smartnews \
   "click_id": "UnoPeo4IDmEwnHepAAEA",
   "event_time": 1473668802,
   "properties": {
-    "item_id": "akashiro:10003938",
-    "shop_id": "akashiro",
-    "event_value": 500,
     "currency": "JPY",
-    "quantity": 2
+    "value": 5000,
+    "content_ids": ['12345', '456789'],
+    "content_type": "product"
   }
 }
 ```
@@ -234,50 +290,6 @@ Content-Type: application/json
     "request_id": "a326f711-1566-4002-9729-2846ae5107c8"
 }
 ```
-## Supported Conversion Events
-### Web Conversion Events
-| Event Name            | Event Code (Send through ConversionAPI) |
-|-----------------------|-----------------------------------------|
-| Purchase              | Purchase                                |
-| Add To Cart           | AddToCart                               |
-| Initiate Checkout     | InitiateCheckout                        |
-| Submit Form           | SubmitForm                              |
-| Subscribe             | Subscribe                               |
-| Complete Registration | CompleteRegistration                    |
-| Contact               | Contact                                 |
-| Sign Up               | SignUp                                  |
-| View Content          | ViewContent                             |
-| Add Payment Info      | AddPaymentInfo                          |
-| Add To Wish List      | AddToWishList                           |
-| Visit Cart            | VisitCart                               |
-| Customize Product     | CustomizeProduct                        |
-| Search                | Search                                  |
-| Booking               | Booking                                 |
-| Download              | Download                                |
-| Start Trial           | StartTrial                              |
-| Share                 | Share                                   |
-| Login                 | Login                                   |
-| Donate                | Donate                                  |
-| Find Location         | FindLocation                            |
-
-
-
-
-
-### App Conversions Events
-| Event Name             | Event Code  (Send through ConversionAPI) |
-|------------------------|------------------------------------------|
-| Level Achieve          | LevelAchieve                             |
-| Open Push Notification | OpenPushNotification                     |
-| Rate                   | Rate                                     |
-| Reengage               | Reengage                                 |
-| Invite                 | Invite                                   |
-| Tutorial Completion    | TutorialCompletion                       |
-| Launch                 | Launch                                   |
-| Purchase History       | PurchaseHistory                          |
-| Like                   | Like                                     |
-| Install                | Install                                  |
-
 
 ## Batch Request [New since 2024/12/16]
 The Batch Request feature allows advertisers to submit multiple conversions in a single request. All other supported parameters remain the same as described above. Note that only the POST method is supported for batch requests.
@@ -302,11 +314,10 @@ curl --request POST 'https://log.smartnews-ads.com/conversion_api/conversions/v1
       "click_id": "UnoPeo4IDmEwnHepAAEA",
       "event_time": 1473668802,
       "properties": {
-        "item_id": "akashiro:10003938",
-        "shop_id": "akashiro",
-        "event_value": 100.1,
         "currency": "JPY",
-        "quantity": 2
+        "value": 5000,
+        "content_ids": ['12345', '456789'],
+        "content_type": "product"
       }
     },
     {
@@ -317,11 +328,10 @@ curl --request POST 'https://log.smartnews-ads.com/conversion_api/conversions/v1
       "click_id": "UnoPeo4IDmEwnHepAAEA",
       "event_time": 1473667802,
       "properties": {
-        "item_id": "akashiro:10003938",
-        "shop_id": "akashiro",
-        "event_value": 100.1,
         "currency": "JPY",
-        "quantity": 2
+        "value": 5000,
+        "content_ids": ['12346'],
+        "content_type": "product"
       }
     },
     {
@@ -332,11 +342,10 @@ curl --request POST 'https://log.smartnews-ads.com/conversion_api/conversions/v1
       "click_id": "UnoFcd4UxewnHepAAEA",
       "event_time": 1473667802,
       "properties": {
-        "item_id": "akashiro:10003939",
-        "shop_id": "akashiro",
-        "event_value": 100.1,
         "currency": "JPY",
-        "quantity": 2
+        "value": 5000,
+        "content_ids": ['12348'],
+        "content_type": "product"
       }
     }
   ]
@@ -364,7 +373,7 @@ Content-Type: application/json
 
 **Error**
 
-If there are multiple invalid events in the batch, the response will only include one error which is picked randomly.
+If there are multiple invalid events in the batch, the response will only include one error which is picked randomly. 
 
 **Case 1**: field missing
 
