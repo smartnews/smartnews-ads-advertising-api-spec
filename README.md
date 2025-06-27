@@ -50,7 +50,7 @@ In this case, please wait a short time and retry the request again.
 
 ## 2025-06-30
 
-Added [rate Limiting](#rate-limiting).
+Added [rate limiting](#rate-limiting).
 
 ## 2024-08-01
 
