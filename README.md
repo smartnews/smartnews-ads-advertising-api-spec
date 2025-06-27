@@ -36,12 +36,25 @@ To help you easily identify AMv2 data:
 - The `amV2` object of AMv1 data will be always `null`, allowing users to differentiate between data from AMv1 and AMv2 seamlessly.
 - The structure and location of the `amV2` object may vary depending on the endpoint. To understand exactly where to find the `amV2` object for each specific endpoint, please refer to the detailed API documentation.
 
+## Rate Limiting
 
-## Latest Release
-All scheduled releases were completed on 2024-10-30.
+Requests are limited per API key. Making too many requests in a short time will result in a HTTP 429 error. The response body is as follows:
 
-### Released items
-New properties were added to the `amV2` field for Insights API endpoints on 2024-08-01:
+```json
+{"code":429,"message":"429 TOO_MANY_REQUESTS"}
+```
+
+In this case, please wait a short time and retry the request again.
+
+# Recent Releases
+
+## 2025-06-30
+
+Added [rate Limiting](#rate-limiting).
+
+## 2024-08-01
+
+New properties were added to the `amV2` field for Insights API endpoints:
 - addToCart, addToCartCpa, addToCartCvr
 - purchase, purchaseCpa, purchaseCvr
 - subscribe, subscribeCpa, subscribeCvr
