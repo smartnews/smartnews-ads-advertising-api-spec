@@ -48,6 +48,14 @@ In this case, please wait a short time and retry the request again.
 
 # Recent Releases
 
+## 2025-09-24
+
+Standard ad accounts (ie non-dynamic ads accounts) can no longer create campaigns via the `POST /v1.0/accounts/{accountId}/campaigns` endpoint.
+
+Also, campaigns can no longer be enabled via the `POST /v1.0/campaigns/{campaignId}/update_enable` endpoint.
+
+Please use [SmartNews Marketing API (2.0.0)](https://ads.smartnews.com/developers) instead.
+
 ## 2025-06-30
 
 Added [rate limiting](#rate-limiting).

@@ -400,6 +400,8 @@ Because of the difference in the product specification of AMv1 and AMv2, the fol
 
 #### POST /v1.0/accounts/{accountId}/campaigns
 
+**As of 2025/09/24 this endpoint is no longer available for non-dynamic ads accounts.**
+
 Create a new campaign associated with the current account.
 
 ##### Parameters [in request path]
@@ -624,6 +626,8 @@ Request with no content body.
 ```
 
 #### POST /v1.0/campaigns/{campaignId}/update_enable
+
+**As of 2025/09/24 this endpoint is no longer available for non-dynamic ads accounts.**
 
 Change campaign `enable` field to `true` or `false`. (`true` means deliverable state, and `false` means *NOT* deliverable state)
 
