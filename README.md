@@ -33,7 +33,7 @@ AMv2 campaign data is not directly accessible through AMv1 APIs. To obtain repor
 To help you easily identify AMv2 data:
 
 - All AMv2 objects within the endpoints will include a nested object named `amV2`. This object's presence indicates that the data is from Ads Manager V2.
-- The `amV2` object of AMv1 data will be always `null`, allowing users to differentiate between data from AMv1 and AMv2 seamlessly.
+- The `amV2` object of AMv1 data will always be `null`, allowing users to differentiate between data from AMv1 and AMv2 seamlessly.
 - The structure and location of the `amV2` object may vary depending on the endpoint. To understand exactly where to find the `amV2` object for each specific endpoint, please refer to the detailed API documentation.
 
 ## Rate Limiting
@@ -79,7 +79,7 @@ New properties were added to the `amV2` field for Insights API endpoints:
 - timeSpent, timeSpentCpa, timeSpentCvr
 Fields were added on 2024-08-20:
 - install, installCpa, installCvr
-Fields wer added on 2024-10-30:
+Fields were added on 2024-10-30:
 - d1Retention, d1RetentionCpa, d1RetentionCvr
 
 # Contact
